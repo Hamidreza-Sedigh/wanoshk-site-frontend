@@ -1,0 +1,44 @@
+
+div.box {
+    /* background-color: thistle; */
+    padding: '8px';
+    margin: 20px;
+    overflow: 'hidden';
+    border: 3px solid green;
+    border-radius: 2px;
+}
+
+ul.news-list{
+    direction: rtl;
+    text-align: right;
+}
+
+div p.test {
+    direction: rtl;
+    text-align: right;
+    color: blue;
+}
+
+span.news-source{
+    text-align: left;
+}
+
+span.news-title{
+    text-align: right;
+    /* color: black; */
+}
+
+div.box-title{
+    text-align: center;
+}
+/*
+div.news-type li {
+    direction: rtl;
+}
+*/
+
+@media (max-width:768px){
+    ul.events-list{
+        grid-template-columns: 1fr;
+    }
+}

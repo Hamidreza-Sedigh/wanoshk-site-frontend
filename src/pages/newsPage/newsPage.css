@@ -1,0 +1,41 @@
+div.nav {
+    font-family: Tahoma;
+    text-align: center;
+}
+
+div.news-body{
+    font-family: Tahoma;
+    font-size: 110%;
+    text-align: justify;
+
+}
+
+div h2.news-title{
+    font-family: Tahoma;
+    text-align: center;
+}
+
+div.news-date{
+    text-align: right;
+}
+
+div.news-source{
+    text-align: right;
+}
+
+div.news-link{
+    text-align: right;
+}
+
+
+
+/*
+div.news-type li {
+    direction: rtl;
+}
+*/
+@media (max-width:768px){
+    ul.events-list{
+        grid-template-columns: 1fr;
+    }
+}
