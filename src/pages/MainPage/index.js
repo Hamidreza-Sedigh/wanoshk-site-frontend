@@ -42,7 +42,7 @@ export default function MainPage({history}){
 
     // const socket = useMemo( 
     //     () => 
-    //     socketio('http://localhost:8000/', { query: { user: user_id } }),
+    //     socketio('http://194.36.174.135:8000/', { query: { user: user_id } }),
     //     [user_id]
     //     );
 
