@@ -3,6 +3,7 @@ import api from '../../services/api';
 import moment from 'moment';
 import './newsPage.css';
 import { Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
 import socketio from 'socket.io-client';
@@ -65,9 +66,17 @@ export default function NewsPage(props, {history}){
 
     return(
         <>
-            <div className="nav">
-                <Link to="/" >صفحه اصلی</Link>
+            <div className="headerNav">
+                <div>
+                    <Nav>
+                        <NavLink href="/">صفحه اصلی</NavLink> 
+                        <NavLink href="#"> منابع خبری </NavLink> 
+                        <NavLink href="/aboutUs">درباره ما</NavLink> 
+                        <NavLink disabled href="#">تماس با ما</NavLink> 
+                    </Nav>
+                </div>
             </div>
+            
             
 
             <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
@@ -76,7 +85,7 @@ export default function NewsPage(props, {history}){
             <div className="news-date"> تاریخ انتشار { news.map(ns=>(moment(ns.date).format('l,  h:mm:ss'))) }</div>
             <div className="news-source"> منبع خبر: { news.map(ns => (ns.sourceName)) } </div>
             <div className="news-link">
-                <a  href="google.com">لینک خبر</a>
+                <a  href="http://google.com">لینک خبر</a>
                 <p> {news.map(ns => (ns.link))} </p>
             </div>
 

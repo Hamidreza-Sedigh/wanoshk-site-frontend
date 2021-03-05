@@ -3,9 +3,11 @@ import api from '../../services/api';
 import moment from 'moment';
 import './mainPage.css';
 import { Button, ButtonGroup, Badge, Alert, Container, Row, Col } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
 import socketio from 'socket.io-client';
+//import appTest from '../../App';
 //import Badge from 'reactstrap/lib/Badge';
 //import Registration from '../../../../backend/src/models/Registration';
 
@@ -31,6 +33,11 @@ export default function MainPage({history}){
     const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
 
     const toggle = () => setDropdownOpen(!dropdownOpen)
+
+    //activePage = 2;
+    // let outActive = 1;
+    // appTest.activePage = 1;
+    // console.log("TEST-ACTIVE", appTest.activePage);
 
     useEffect(()=>{
         getNews()
@@ -169,15 +176,24 @@ export default function MainPage({history}){
     // select all categories: (6for example) -> map-> select where category = this
     return(
         <>
-        
+            {/* <div className="navbar">
+                <Nav pills>
+                    <NavLink href="/" active>صفحه اصلی</NavLink> 
+                    <NavLink href="#"> منابع خبری </NavLink> 
+                    <NavLink href="/aboutUs">درباره ما</NavLink> 
+                    <NavLink disabled href="#">تماس با ما</NavLink> 
+                </Nav>
+            </div> */}
+            
             <div className="box">
             {/* boxes */}
-                <div className="box-title">
+                <div className="box-title main-box-title">
                     <ButtonGroup>
-                        <Button onClick={ () => getNewsCat("a") }>سیاسی </Button>
-                        <Button onClick={ () => getNewsCat("b") }>اقتصادی </Button>
-                        <Button onClick={ () => getNewsCat("c") }>ورزشی </Button>
-                        <Button onClick={ () => getNewsCat("d") }>فناوری </Button>
+                        <Button onClick={ () => getNewsCat("a") } className="button-box">تازه ترین خبر ها </Button>
+                        <Button onClick={ () => getNewsCat("b") } className="button-box">پربازدیدترین های روز </Button>
+                        <Button onClick={ () => getNewsCat("c") } className="button-box">پربحثترین های روز </Button>
+                        <Button onClick={ () => getNewsCat("d") } className="button-box">پربازدیدترین های هفته </Button>
+                        <Button onClick={ () => getNewsCat("d") } className="button-box">پربحثترین های هفته </Button>
                     </ButtonGroup>
                 </div>
                 <p></p>
@@ -193,9 +209,9 @@ export default function MainPage({history}){
                             }}
                             >
                             <span className="news-title"> {ns.title} </span> </Link>
-                            <span>  { moment(ns.date).format(' h:mm:ss') } </span>
+                            <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
-                            <Badge color="info"> {ns.views} </Badge>
+                            <Badge color="info"> {ns.views} بازدید </Badge>
                             <span> {ns.category} </span>
                         </li>
                     ))}
@@ -204,6 +220,7 @@ export default function MainPage({history}){
 
             <div className="box">
             {/* boxes */}
+
                 <div className="box-title">
                     اخبار سیاسی
                 </div>
@@ -217,7 +234,7 @@ export default function MainPage({history}){
                             }}
                             >
                             <span className="news-title"> {ns.title} </span> </Link>
-                            <span>  { moment(ns.date).format(' h:mm:ss') } </span>
+                            <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
                             <span> {ns.category} </span>
@@ -240,7 +257,7 @@ export default function MainPage({history}){
                             }}
                             >
                             <span className="news-title"> {ns.title} </span> </Link>
-                            <span>  { moment(ns.date).format(' h:mm:ss') } </span>
+                            <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
                             <span> {ns.category} </span>
@@ -263,7 +280,7 @@ export default function MainPage({history}){
                             }}
                             >
                             <span className="news-title"> {ns.title} </span> </Link>
-                            <span>  { moment(ns.date).format(' h:mm:ss') } </span>
+                            <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
                             <span> {ns.category} </span>
@@ -286,7 +303,7 @@ export default function MainPage({history}){
                             }}
                             >
                             <span className="news-title"> {ns.title} </span> </Link>
-                            <span>  { moment(ns.date).format(' h:mm:ss') } </span>
+                            <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
                             <span> {ns.category} </span>

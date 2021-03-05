@@ -109,13 +109,20 @@ input,
 }
 
 .header {
-    background: #286090;
+    background-color:#1122dd;
     width: 100%;
 }
 
 .header h1{
     text-align: center;
 
+}
+
+.headerNav {
+    direction: rtl;
+    text-align: right;
+    color: black;
+    font-family: 'Tahoma';
 }
 
 .footer {

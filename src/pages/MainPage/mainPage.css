@@ -1,11 +1,50 @@
 
 div.box {
     /* background-color: thistle; */
-    padding: '8px';
+    padding: 28px;
+    padding-top: 0%;
     margin: 20px;
     overflow: 'hidden';
-    border: 3px solid green;
-    border-radius: 2px;
+    border: 3px solid cyan;
+    border-radius: 20px;
+}
+
+.main-box-title{
+    margin: 3px;
+}
+
+.box-title .button-box{
+    /* color: cyan; */
+    margin: 3px;
+}
+
+div .button-box{
+    border-radius: 10px;
+}
+
+
+div.box-title{
+    /* text-align: center;
+    
+    font-style: inherit; */
+    /* background-color: blue; */
+    font-size: 150%;
+    background:none repeat scroll 0 0 #fff;
+    color: #000055;
+    font-family:'tahoma',sans-serif;
+    /* font-size:18px;  */
+    margin-top:5px;
+    font-weight:400; 
+    margin-bottom:10px;
+    margin-left:0; 
+    padding:0;
+    position:relative;
+    text-align:center;
+}
+
+.news-list li{
+    content: " | ";
+    color: cyan; /* or whatever color you prefer */
 }
 
 ul.news-list{
@@ -19,26 +58,38 @@ div p.test {
     color: blue;
 }
 
+span.news-time{
+    color: darkslategrey;
+}
+
 span.news-source{
     text-align: left;
+    color: black;
 }
 
 span.news-title{
     text-align: right;
-    /* color: black; */
+    color: #000055;
+
 }
 
-div.box-title{
-    text-align: center;
-}
+
 /*
 div.news-type li {
     direction: rtl;
 }
 */
 
+.navbar{
+    direction: rtl;
+    text-align: right;
+}
+
+
+
 @media (max-width:768px){
     ul.events-list{
         grid-template-columns: 1fr;
     }
 }
+
