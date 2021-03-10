@@ -45,6 +45,11 @@ export default function MainPage({history}){
         getEconomicNews();
         getSportNews();
         getTechNews();
+        //getLatestNews();
+        getMostVisitedDaily();
+        getMostVisitedWeekly();
+        getMostCommentedDaily();
+        getMostCommentedweekly();
     },[]);
 
     // const socket = useMemo( 
@@ -127,6 +132,46 @@ export default function MainPage({history}){
         }
     };
 
+    const getMostVisitedDaily = async() => {
+        try {
+            const response = await api.post('/getMostVisitedDaily', {  });
+            setNews(response.data.news)
+        } catch (error) {
+            console.log("my test for loggr");
+            history.push('/');
+        }
+    };
+
+    const getMostVisitedWeekly = async() => {
+        try {
+            const response = await api.post('/getMostVisitedWeekly', {  });
+            setNews(response.data.news)
+        } catch (error) {
+            console.log("my test for loggr");
+            history.push('/');
+        }
+    };
+
+    const getMostCommentedDaily = async() => {
+        try {
+            const response = await api.post('/getMostCommentedDaily', {  });
+            setNews(response.data.news)
+        } catch (error) {
+            console.log("my test for loggr");
+            history.push('/');
+        }
+    };
+
+    const getMostCommentedweekly = async() => {
+        try {
+            const response = await api.post('/getMostCommentedweekly', {  });
+            setNews(response.data.news)
+        } catch (error) {
+            console.log("my test for loggr");
+            history.push('/');
+        }
+    };
+
     // it should work in callback mode : dont know how to do it in express routes.
     // const getNewsCates = async() => {
     //     try {
@@ -189,11 +234,11 @@ export default function MainPage({history}){
             {/* boxes */}
                 <div className="box-title main-box-title">
                     <ButtonGroup>
-                        <Button onClick={ () => getNewsCat("a") } className="button-box">تازه ترین خبر ها </Button>
-                        <Button onClick={ () => getNewsCat("b") } className="button-box">پربازدیدترین های روز </Button>
-                        <Button onClick={ () => getNewsCat("c") } className="button-box">پربحثترین های روز </Button>
-                        <Button onClick={ () => getNewsCat("d") } className="button-box">پربازدیدترین های هفته </Button>
-                        <Button onClick={ () => getNewsCat("d") } className="button-box">پربحثترین های هفته </Button>
+                        <Button onClick={ () => getNews() } className="button-box">تازه ترین خبر ها </Button>
+                        <Button onClick={ () => getMostVisitedDaily() } className="button-box">پربازدیدترین های روز </Button>
+                        <Button onClick={ () => getMostCommentedDaily() } className="button-box">پربحثترین های روز </Button>
+                        <Button onClick={ () => getMostVisitedWeekly() } className="button-box">پربازدیدترین های هفته </Button>
+                        <Button onClick={ () => getMostCommentedweekly() } className="button-box">پربحثترین های هفته </Button>
                     </ButtonGroup>
                 </div>
                 <p></p>
