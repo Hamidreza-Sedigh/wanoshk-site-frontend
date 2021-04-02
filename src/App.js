@@ -26,7 +26,7 @@ function App() {
                   <NavLink href="/" active={activePage === 1} >صفحه اصلی</NavLink> 
                   <NavLink href="#" active={activePage === 2} > منابع خبری </NavLink> 
                   <NavLink href="/aboutUs" active={activePage === 3} >درباره ما</NavLink> 
-                  <NavLink disabled href="#" active={activePage === 4}>تماس با ما</NavLink> 
+                  <NavLink href="/contactUs" active={activePage === 4}>تماس با ما</NavLink> 
               </Nav>
           </div>
       </div>

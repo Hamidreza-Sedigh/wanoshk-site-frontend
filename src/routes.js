@@ -8,7 +8,8 @@ import MyRegistrations from './pages/MyRegistrations';
 import TopNav from './components/TopNav';
 import MainPage from './pages/MainPage';
 import NewsPage from './pages/newsPage';
-import aboutUs  from './pages/aboutUs'
+import aboutUs  from './pages/aboutUs';
+import contactUs from './pages/ContactUs';
 
 export default function Routes(){
     return(
@@ -23,6 +24,7 @@ export default function Routes(){
                 <Route path='/events' component={EventsPage} />
                 <Route path='/newsPage/:id' component={NewsPage} />
                 <Route path='/aboutUs' component={aboutUs} />
+                <Route path='/contactUs' component={contactUs} />
             </Switch>
         </BrowserRouter>
     );
