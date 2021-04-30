@@ -1,5 +1,5 @@
 import axios from 'axios';
-let environment = 'env' //dev or opr
+let environment = 'dev' //dev or opr
 let envURL = '';
 
 if(environment == 'opr'){

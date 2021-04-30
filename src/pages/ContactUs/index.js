@@ -1,48 +1,47 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import api from '../../services/api';
-import './contactUs.css';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-//import Registration from '../../../../backend/src/models/Registration';
+import { Button, Form, FormGroup, Input, Label, FormText, Alert } from 'reactstrap';
+import {UserContext} from '../../user-context';
 
-//dashboard will show all the events       
-export default function contactUs(props, {history}){
-    const user = localStorage.getItem('user');
-    const user_id = localStorage.getItem('user_id');
-    // const [email, setEmail] = useState("");
-    // const [mailCategory, setMailCategory] = useState("");
-    // const [passage, setPassage] =  useState("");
-    
-    // useEffect(()=>{
-       
-    // },[]);
+export default function ContactUs({history}){
+    const { setIsLoggedIn} = useContext(UserContext);
+    const [email, setEmail] = useState("");
+    const [category, setCategory] =  useState("");
+    const [passage, setPassage] = useState("");
 
-    // const socket = useMemo( 
-    //     () => 
-    //     socketio('http://194.36.174.135:8000/', { query: { user: user_id } }),
-    //     [user_id]
-    //     );
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async evt =>{
         evt.preventDefault()
-        console.log('test in contactUs');
 
-        const response = await api.post('/contact', {});
+        if(email !== "" ){
+            const response = await api.post('/contactUs', {email, category, passage});
+            const user = response.data.user || false;
+            const user_id = response.data.user_id || false;
 
+        } else {
+            setError(true);
+            setErrorMessage("enter a valid Email!")
+            setTimeout(()=>{
+                setError(false)
+                setErrorMessage("")
+            }, 2000)
+        }
         
-    }
 
+    }
 
     return(
         <>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="exampleEmail">ایمیل</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="ایمیل" />
+                    <Input type="email" name="email" id="exampleEmail" placeholder="ایمیل"  onChange={ evt => setEmail(evt.target.value)}/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleSelect">انتخاب کنید</Label>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" name="select" id="exampleSelect"  onChange={ evt => setCategory(evt.target.value)}>
                     <option>اضافه شدن به منابع خبری</option>
                     <option>پیشنهاد و انتقادات</option>
                     <option>تبلیغات</option>
@@ -52,7 +51,7 @@ export default function contactUs(props, {history}){
                 
                 <FormGroup>
                     <Label for="exampleText">متن ارسالی</Label>
-                    <Input type="textarea" name="text" id="exampleText" />
+                    <Input type="textarea" name="text" id="exampleText"  onChange={ evt => setPassage(evt.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">اضافه کردن فایل</Label>

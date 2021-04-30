@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import api from '../../services/api';
-import { Container, Button, Form, FormGroup, Input, Alert } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Alert, Container } from 'reactstrap';
 import {UserContext} from '../../user-context';
 
 export default function Register({history}){
