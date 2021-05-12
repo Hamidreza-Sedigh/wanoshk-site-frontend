@@ -28,11 +28,11 @@ div.box-title{
     
     font-style: inherit; */
     /* background-color: blue; */
-    font-size: 150%;
+    /* font-size: 150%; */
     background:none repeat scroll 0 0 #fff;
     color: #000055;
     font-family:'tahoma',sans-serif;
-    /* font-size:18px;  */
+    font-size:18px; 
     margin-top:5px;
     font-weight:400; 
     margin-bottom:10px;
@@ -44,7 +44,7 @@ div.box-title{
 
 .news-list li{
     content: " | ";
-    color: cyan; /* or whatever color you prefer */
+    color: cyan; 
 }
 
 ul.news-list{
@@ -59,7 +59,7 @@ div p.test {
 }
 
 span.news-time{
-    color: darkslategrey;
+    color: black;
 }
 
 span.news-source{
@@ -85,6 +85,14 @@ div.news-type li {
     text-align: right;
 }
 
+.box-footer{
+    text-align: center;
+}
+
+span.continue{
+    direction: rtl;
+    text-align: center;
+}
 
 
 @media (max-width:768px){

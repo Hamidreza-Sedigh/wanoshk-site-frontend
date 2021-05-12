@@ -10,6 +10,7 @@ import MainPage from './pages/MainPage';
 import NewsPage from './pages/newsPage';
 import aboutUs  from './pages/aboutUs';
 import contactUs from './pages/ContactUs';
+import OneTypeNews from './pages/OneTypeNews'
 
 export default function Routes(){
     return(
@@ -25,6 +26,7 @@ export default function Routes(){
                 <Route path='/newsPage/:id' component={NewsPage} />
                 <Route path='/aboutUs' component={aboutUs} />
                 <Route path='/contactUs' component={contactUs} />
+                <Route path='/OneTypeNews' component={OneTypeNews} />
             </Switch>
         </BrowserRouter>
     );

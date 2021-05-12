@@ -1,0 +1,12 @@
+{
+    "environment" : "local",
+    "production" : {
+        "ip" : "194.36.174.161"
+    },
+    "db": {
+        "host": "172.20.1.2",
+        "username": "ali",
+        "password": "61",
+        "database": "ktadealer"
+    }
+}

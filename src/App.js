@@ -21,14 +21,12 @@ function App() {
       </div>
 
       <div className="headerNav">
-          <div>
-              <Nav pills>
-                  <NavLink href="/" active={activePage === 1} >صفحه اصلی</NavLink> 
-                  <NavLink href="#" active={activePage === 2} > منابع خبری </NavLink> 
-                  <NavLink href="/aboutUs" active={activePage === 3} >درباره ما</NavLink> 
-                  <NavLink href="/contactUs" active={activePage === 4}>تماس با ما</NavLink> 
-              </Nav>
-          </div>
+          <Nav pills>
+              <NavLink href="/" active={activePage === 1} >صفحه اصلی</NavLink> 
+              <NavLink href="#" active={activePage === 2} > منابع خبری </NavLink> 
+              <NavLink href="/aboutUs" active={activePage === 3} >درباره ما</NavLink> 
+              <NavLink href="/contactUs" active={activePage === 4}>تماس با ما</NavLink> 
+          </Nav>
       </div>
       
       <div className="content" > 
@@ -38,7 +36,7 @@ function App() {
       
       
       <footer className="footer">
-      <p>wanoshk news</p>
+        <p>wanoshk news</p>
       </footer>
 
     </ContextWrapper>

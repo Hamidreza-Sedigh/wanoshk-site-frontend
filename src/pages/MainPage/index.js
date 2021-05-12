@@ -12,7 +12,6 @@ import socketio from 'socket.io-client';
 //import Registration from '../../../../backend/src/models/Registration';
 
 
-//dashboard will show all the events       
 export default function MainPage({history}){
     const [news, setNews] = useState([]);
     const [politicNews, setPoliticNews] = useState([]);
@@ -286,6 +285,15 @@ export default function MainPage({history}){
                         </li>
                     ))}
                 </ul>
+                <div className="box-footer">
+                <Link
+                    to={{
+                        pathname: `/OneTypeNews` ,
+                        state: "politic"
+                    }}
+                    >
+                    <span className="continue"> {"ادامه اخبار سیاسی"} </span> </Link>
+                </div>
             </div>
 
             <div className="box">

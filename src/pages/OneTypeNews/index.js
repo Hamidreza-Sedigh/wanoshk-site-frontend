@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
-import './newsPage.css';
+import './OneTypeNews.css';
 import { Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 //import Registration from '../../../../backend/src/models/Registration';
 
 //dashboard will show all the events       
-export default function NewsPage(props, {history}){
+export default function OneTypeNews(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
@@ -27,14 +27,14 @@ export default function NewsPage(props, {history}){
     const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
     
 
-    const { id } = props.match.params;
+    const { type } = props.match.params;
     //console.log(this.props);
     //const id  = this.props.location.state
 
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
     useEffect(()=>{
-        getOneNews(id)
+        getOneTypeNews(type)
         //getOneNews(_id)
     },[]);
 
@@ -50,11 +50,11 @@ export default function NewsPage(props, {history}){
     //     socket.on('registration_request', data => ( setEventsRequest([ ...eventsRequest, data]) ) )
     // },[eventsRequest, socket]);
 
-    const getOneNews = async(newsId) => {
+    const getOneTypeNews = async(newsType) => {
         try {
-            console.log("newsId in newsPage-index", newsId);
+            console.log("newsType in newsPage-index", newsType);
             //console.log("TEST:", id);
-            const url = `/getOneNews/${newsId}` ;
+            const url = `/getOneTypeNews/${newsType}` ;
             const response = await api.get(url, { headers: { user: user }})
             console.log("RESPONSE:", response.data.news);
             setNews(response.data.news);
@@ -66,6 +66,7 @@ export default function NewsPage(props, {history}){
 
     return(
         <>
+            <h3> TEST OK</h3>
             
             <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
             {/* <p> {news.map(ns => (ns.passage))}</p> */}
