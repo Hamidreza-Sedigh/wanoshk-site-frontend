@@ -288,7 +288,8 @@ export default function MainPage({history}){
                 <div className="box-footer">
                 <Link
                     to={{
-                        pathname: `/OneTypeNews` ,
+                        // pathname: `/OneTypeNews/${1}` ,
+                        pathname: `/OneTypeNews/politic` ,
                         state: "politic"
                     }}
                     >
@@ -317,6 +318,16 @@ export default function MainPage({history}){
                         </li>
                     ))}
                 </ul>
+                <div className="box-footer">
+                <Link
+                    to={{
+                        // pathname: `/OneTypeNews/${1}` ,
+                        pathname: `/OneTypeNews/politic` ,
+                        state: "politic"
+                    }}
+                    >
+                    <span className="continue"> {"ادامه اخبار اقتصادی"} </span> </Link>
+                </div>
             </div>
 
             <div className="box">
@@ -340,6 +351,16 @@ export default function MainPage({history}){
                         </li>
                     ))}
                 </ul>
+                <div className="box-footer">
+                <Link
+                    to={{
+                        // pathname: `/OneTypeNews/${1}` ,
+                        pathname: `/OneTypeNews/politic` ,
+                        state: "politic"
+                    }}
+                    >
+                    <span className="continue"> {"ادامه اخبار ورزشی"} </span> </Link>
+                </div>
             </div>
 
             <div className="box">
@@ -363,6 +384,16 @@ export default function MainPage({history}){
                         </li>
                     ))}
                 </ul>
+                <div className="box-footer">
+                <Link
+                    to={{
+                        // pathname: `/OneTypeNews/${1}` ,
+                        pathname: `/OneTypeNews/politic` ,
+                        state: "politic"
+                    }}
+                    >
+                    <span className="continue"> {"ادامه اخبار فناوری"} </span> </Link>
+                </div>
             </div>
             
         </>

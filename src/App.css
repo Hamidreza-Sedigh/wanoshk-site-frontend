@@ -29,7 +29,7 @@ input,
 } */
 
 .container{
-    
+    /* margin-right: 80px auto; */
     margin-bottom: 80px auto;
     margin-top: 0px auto;
     /* max-width: 900px; */
@@ -109,7 +109,7 @@ input,
 }
 
 .header {
-    background-color:#222222;
+    background-color:#444444;
     width: 100%;
     padding-bottom: 3px;
 }
@@ -120,6 +120,11 @@ input,
     font-family: Tahoma;
 }
 
+.today{
+    text-align: right;
+    
+}
+
 .headerNav {
     direction: rtl;
     text-align: right;
@@ -128,7 +133,8 @@ input,
 }
 
 .footer {
-    
+    direction: rtl;
+    text-align: center;
     background: #286090;
     width: 100%;
 }

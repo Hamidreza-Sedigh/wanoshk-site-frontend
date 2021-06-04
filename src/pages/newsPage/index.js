@@ -34,6 +34,8 @@ export default function NewsPage(props, {history}){
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
     useEffect(()=>{
+        console.log("props:", props);
+        console.log("newspage-index-id", id);
         getOneNews(id)
         //getOneNews(_id)
     },[]);
@@ -73,8 +75,8 @@ export default function NewsPage(props, {history}){
             <div className="news-date"> تاریخ انتشار { news.map(ns=>(moment(ns.date).format('l,  h:mm:ss'))) }</div>
             <div className="news-source"> منبع خبر: { news.map(ns => (ns.sourceName)) } </div>
             <div className="news-link">
-                <a  href="http://google.com">لینک خبر</a>
-                <p> {news.map(ns => (ns.link))} </p>
+                <a  href={news.map(ns => (ns.link))} target="_blank">لینک خبر</a>
+                
             </div>
 
         </>
