@@ -256,7 +256,7 @@ export default function MainPage({history}){
                             <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} بازدید </Badge>
-                            <span> {ns.category} </span>
+                            {/* <span> {ns.category} </span> */}
                         </li>
                     ))}
                 </ul>
@@ -281,7 +281,7 @@ export default function MainPage({history}){
                             <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
-                            <span> {ns.category} </span>
+                            {/* <span> {ns.category} </span> */}
                         </li>
                     ))}
                 </ul>
@@ -314,7 +314,7 @@ export default function MainPage({history}){
                             <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
-                            <span> {ns.category} </span>
+                            {/* <span> {ns.category} </span> */}
                         </li>
                     ))}
                 </ul>
@@ -347,7 +347,7 @@ export default function MainPage({history}){
                             <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
-                            <span> {ns.category} </span>
+                            {/* <span> {ns.category} </span> */}
                         </li>
                     ))}
                 </ul>
@@ -380,7 +380,7 @@ export default function MainPage({history}){
                             <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
                             <span className="news-source">  {ns.sourceName} </span>
                             <Badge color="info"> {ns.views} </Badge>
-                            <span> {ns.category} </span>
+                            {/* <span> {ns.category} </span> */}
                         </li>
                     ))}
                 </ul>

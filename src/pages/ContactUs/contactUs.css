@@ -1,0 +1,16 @@
+
+.form {
+    /* background-color: thistle; */
+    /* direction: rtl; */
+    padding: 28px;
+    padding-top: 0%;
+    margin: 20px;
+    overflow: 'hidden';
+    border: 3px solid cornflowerblue;
+    border-radius: 20px;
+}
+
+.title{
+    text-align: center;
+    direction: rtl;
+}

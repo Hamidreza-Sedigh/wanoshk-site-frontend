@@ -111,17 +111,20 @@ input,
 .header {
     background-color:#444444;
     width: 100%;
-    padding-bottom: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    /* height: auto; */
 }
 
 .header h1{
     text-align: center;
-    color: blanchedalmond;
+    /* color: blanchedalmond; */
+    color:white;
     font-family: Tahoma;
 }
 
 .today{
-    text-align: right;
+    text-align: left;
     
 }
 
@@ -135,6 +138,6 @@ input,
 .footer {
     direction: rtl;
     text-align: center;
-    background: #286090;
+    background: #337ab7;
     width: 100%;
 }

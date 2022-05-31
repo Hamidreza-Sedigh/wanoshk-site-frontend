@@ -2,7 +2,7 @@ import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './newsPage.css';
-import { Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, FormText, Alert } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
@@ -68,15 +68,31 @@ export default function NewsPage(props, {history}){
 
     return(
         <>
-            
-            <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
-            {/* <p> {news.map(ns => (ns.passage))}</p> */}
-            <div className="news-body" dir="rtl" >{ ReactHtmlParser(news.map(ns => (ns.passage))) }</div>;
-            <div className="news-date"> تاریخ انتشار { news.map(ns=>(moment(ns.date).format('l,  h:mm:ss'))) }</div>
-            <div className="news-source"> منبع خبر: { news.map(ns => (ns.sourceName)) } </div>
-            <div className="news-link">
-                <a  href={news.map(ns => (ns.link))} target="_blank">لینک خبر</a>
-                
+            <div className="main-body">  
+                <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
+                {/* <p> {news.map(ns => (ns.passage))}</p> */}
+                <div className="news-body" dir="rtl" >{ ReactHtmlParser(news.map(ns => (ns.passage))) }</div>;
+                <div className="news-date"> تاریخ انتشار { news.map(ns=>(moment(ns.date).format('l,  h:mm:ss'))) }</div>
+                <div className="news-source"> منبع خبر: { news.map(ns => (ns.sourceName)) } </div>
+                <div className="news-link">
+                    <a  href={news.map(ns => (ns.link))} target="_blank">لینک خبر</a>
+                    
+                </div>
+            </div>
+            <div className="comments">
+                {/* <Form onSubmit={handleSubmit}>
+                    <FormGroup>
+                        <Label for="exampleEmail" className="title">ایمیل</Label>
+                        <Input type="email" name="email" id="exampleEmail" placeholder="ایمیل"  onChange={ evt => setEmail(evt.target.value)}/>
+                    </FormGroup>
+                    
+                    <FormGroup>
+                        <Label for="exampleText">متن ارسالی</Label>
+                        <Input type="textarea" name="text" id="exampleText"  onChange={ evt => setPassage(evt.target.value)} />
+                    </FormGroup>
+                    
+                    <Button className="submit-btn">ارسال</Button>
+                </Form> */}
             </div>
 
         </>

@@ -13,7 +13,32 @@ import moment from 'moment';
 
 let activePage = 1;
 console.log("active in App:", activePage);
-//console.log("active in out:", impTest.outActive)
+console.log(window.location.pathname); //yields: "/js" (where snippets run)
+let currrentPage = window.location.pathname
+console.log(currrentPage);
+console.log(window.location.href);     //
+
+// /Sources
+//aboutUs
+//contactUs
+
+switch(currrentPage) {
+  case '/Sources':
+    activePage = 2;
+    break;
+  case '/aboutUs':
+    activePage = 3;
+    break;
+  case '/contactUs':
+    activePage = 4;
+    break;
+  default:
+    activePage = 1;
+}
+
+
+
+
 
 let n =  new Date();
 let y = n.getFullYear();
@@ -21,26 +46,38 @@ let m = n.getMonth() + 1;
 let d = n.getDate();
 //document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 let today = m + "/" + d + "/" + y ;
+let options = { year: 'numeric',  day: 'numeric', month: 'long' };
+today = new Date().toLocaleDateString('fa-IR');
+//today = new Date().toLocaleDateString('fa-IR', options);
+
+console.log(today);
 
 function App() {
   return (
     <ContextWrapper>
       <div className="header">
+      {/* <div className="today">
+            {today}
+      </div> */}
           <h1>وب سایت خبری ونشک</h1>
           
       </div>
 
-      {/* <div className="today">
-            {moment(new Date()).format('YYYY-MM-DD')}
-      </div> */}
+      
 
       <div className="headerNav">
+
+        <div>
           <Nav pills>
               <NavLink href="/" active={activePage === 1} >صفحه اصلی</NavLink> 
               <NavLink href="/Sources" active={activePage === 2} > منابع خبری </NavLink> 
               <NavLink href="/aboutUs" active={activePage === 3} >درباره ما</NavLink> 
               <NavLink href="/contactUs" active={activePage === 4}>تماس با ما</NavLink> 
           </Nav>
+        </div>  
+        <div>
+          {today}    
+        </div>
       </div>
 
       <div className="content" > 
