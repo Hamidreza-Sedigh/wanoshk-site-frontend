@@ -1,30 +1,28 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
-import './sources.css';
+import './OneSourceNews.css';
 import { Badge, Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
 import socketio from 'socket.io-client';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-//import Registration from '../../../../backend/src/models/Registration';
 
-//dashboard will show all the events       
-export default function Sources(props, {history}){
-    const [sources, setSources] = useState([]);
+export default function OneSourceNews(props, {history}){
+    const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
-    //const [cSelected, setCSelected] = useState([]); // jean deleted
 
-    
-    
-
-    //let { type } = props.location.state;
+    let { sourceName } = props.location.state;
     //console.log(this.props);
     //const id  = this.props.location.state
 
     useEffect(()=>{
-        getSources()
+        console.log("index-type:", sourceName);
+        sourceName = props.location.state
+        console.log("index-type:", sourceName);   
+        getOneSourceNews(sourceName)
         //getOneNews(_id)
     },[]);
 
@@ -34,20 +32,13 @@ export default function Sources(props, {history}){
     //     [user_id]
     //     );
 
-    // useEffect(()=>{
-    //     console.log("e10 test");
-    //     //socket.on('hamid', response => console.log(response) )
-    //     socket.on('registration_request', data => ( setEventsRequest([ ...eventsRequest, data]) ) )
-    // },[eventsRequest, socket]);
-
-    const getSources = async() => {
+    const getOneSourceNews = async(sourceName) => {
         try {
-            console.log("getSources-index");
-            //console.log("TEST:", id);
-            const url = `/getSources` ;
+            console.log("newsType in getOneType-index", sourceName);
+            const url = `/getOneSourceNews/${sourceName}` ;
             const response = await api.get(url, { headers: { user: user }})
-            console.log("RESPONSE:", response.data.sources);
-            setSources(response.data.sources);
+            console.log("RESPONSE:", response.data.news);
+            setNews(response.data.news);
         } catch (error) {
             console.log("my test for loggr");
             history.push('/');
@@ -56,23 +47,23 @@ export default function Sources(props, {history}){
 
     return(
         <>
-            
             <ul className="news-list">
-                {sources.map(s => (
-                    <li key={s._id}>
-                        
-                        {/* <Link
+                {news.map(ns => (
+                    <li key={ns._id}>
+                        <Link
                         to={{
-                            pathname: `/newsPage/${s}` ,
-                            state: s
+                            pathname: `/sourcePage/${ns._id}` ,
+                            state: ns._id
                         }}
                         >
-                        <span className="news-title"> {s} </span> </Link> */}
-                        <span className="source-title">  {s.sourceName} </span>
+                        <span className="news-title"> {ns.title} </span> </Link>
+                        <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span>
+                        <span className="news-source">  {ns.sourceName} </span>
+                        <Badge color="info"> {ns.views} بازدید </Badge>
+                        <span> {ns.category} </span>
                     </li>
                 ))}
             </ul>
-
         </>
     );
 }

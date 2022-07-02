@@ -322,8 +322,8 @@ export default function MainPage({history}){
                 <Link
                     to={{
                         // pathname: `/OneTypeNews/${1}` ,
-                        pathname: `/OneTypeNews/politic` ,
-                        state: "politic"
+                        pathname: `/OneTypeNews/finance` ,
+                        state: "finance"
                     }}
                     >
                     <span className="continue"> {"ادامه اخبار اقتصادی"} </span> </Link>

@@ -45,9 +45,9 @@ let y = n.getFullYear();
 let m = n.getMonth() + 1;
 let d = n.getDate();
 //document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-let today = m + "/" + d + "/" + y ;
+//let today = m + "/" + d + "/" + y ;
 let options = { year: 'numeric',  day: 'numeric', month: 'long' };
-today = new Date().toLocaleDateString('fa-IR');
+let today = new Date().toLocaleDateString('fa-IR');
 //today = new Date().toLocaleDateString('fa-IR', options);
 
 console.log(today);

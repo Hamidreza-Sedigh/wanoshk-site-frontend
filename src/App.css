@@ -109,7 +109,7 @@ input,
 }
 
 .header {
-    background-color:#444444;
+    background-color:#eeeeee;
     width: 100%;
     padding-top: 6px;
     padding-bottom: 6px;
@@ -119,7 +119,7 @@ input,
 .header h1{
     text-align: center;
     /* color: blanchedalmond; */
-    color:white;
+    color:blue;
     font-family: Tahoma;
 }
 
@@ -129,6 +129,7 @@ input,
 }
 
 .headerNav {
+    background-color: #dddddd;
     direction: rtl;
     text-align: right;
     color: black;
@@ -138,6 +139,6 @@ input,
 .footer {
     direction: rtl;
     text-align: center;
-    background: #337ab7;
+    background: #dddddd;
     width: 100%;
 }

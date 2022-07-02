@@ -10,15 +10,11 @@ import socketio from 'socket.io-client';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 //import Registration from '../../../../backend/src/models/Registration';
 
-//dashboard will show all the events       
 export default function OneTypeNews(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
     //const [cSelected, setCSelected] = useState([]); // jean deleted
-
-    
-    
 
     let { type } = props.location.state;
     //console.log(this.props);

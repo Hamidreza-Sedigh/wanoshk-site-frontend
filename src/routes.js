@@ -12,6 +12,7 @@ import aboutUs  from './pages/aboutUs';
 import contactUs from './pages/ContactUs';
 import OneTypeNews from './pages/OneTypeNews'
 import Sources from './pages/Sources';
+import OneSourceNews from './pages/oneSourceNews';
 
 export default function Routes(){
     return(
@@ -29,6 +30,7 @@ export default function Routes(){
                 <Route path='/contactUs' component={contactUs} />
                 <Route path='/OneTypeNews' component={OneTypeNews} />
                 <Route path='/Sources' component={Sources} />
+                <Route path='/SourceNews' component={OneSourceNews} />
             </Switch>
         </BrowserRouter>
     );
