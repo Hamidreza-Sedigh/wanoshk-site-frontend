@@ -31,7 +31,21 @@ div.news-link{
     text-align: right;
 }
 
+div.comments{
+    border: 1px;
+    text-align: right;
+    direction: rtl  ;
+    margin-left: 40px;
+    width: 95%;
+}
 
+p.commentsTitles{
+    font-weight: bold;
+}
+
+div.middle{
+    height: 40px;    
+}
 
 /*
 div.news-type li {

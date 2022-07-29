@@ -15,7 +15,10 @@ export default function NewsPage(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
-    //const [cSelected, setCSelected] = useState([]); // jean deleted
+
+    const [email, setEmail] = useState("");
+    const [passage, setPassage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const [rSelected, setRSelected] = useState(null);
     const [error, setError] = useState(false);
@@ -66,6 +69,22 @@ export default function NewsPage(props, {history}){
         }
     };
 
+    const handleSubmit = async evt =>{
+        evt.preventDefault()
+        if(email !== "" ){
+            const response = await api.post('/contactUs', {email, passage});
+            const user = response.data.user || false;
+            const user_id = response.data.user_id || false;
+        } else {
+            setError(true);
+            setErrorMessage("enter a passage")
+            setTimeout(()=>{
+                setError(false)
+                setErrorMessage("")
+            }, 2000)
+        }
+    }
+
     return(
         <>
             <div className="main-body">  
@@ -79,8 +98,12 @@ export default function NewsPage(props, {history}){
                     
                 </div>
             </div>
+            <div className='middle'>
+                <p></p>
+            </div>
             <div className="comments">
-                {/* <Form onSubmit={handleSubmit}>
+                <p className='commentsTitles'>فرم ارسال نظرات</p>
+                <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <Label for="exampleEmail" className="title">ایمیل</Label>
                         <Input type="email" name="email" id="exampleEmail" placeholder="ایمیل"  onChange={ evt => setEmail(evt.target.value)}/>
@@ -92,7 +115,7 @@ export default function NewsPage(props, {history}){
                     </FormGroup>
                     
                     <Button className="submit-btn">ارسال</Button>
-                </Form> */}
+                </Form>
             </div>
 
         </>

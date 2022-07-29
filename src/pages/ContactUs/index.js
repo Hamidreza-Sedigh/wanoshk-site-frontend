@@ -20,7 +20,7 @@ export default function ContactUs({history}){
             const response = await api.post('/contactUs', {email, category, passage});
             const user = response.data.user || false;
             const user_id = response.data.user_id || false;
-
+            setEmail("");
         } else {
             setError(true);
             setErrorMessage("enter a valid Email!")
