@@ -49,7 +49,7 @@ export default function Sources(props, {history}){
             console.log("RESPONSE:", response.data.sources);
             setSources(response.data.sources);
         } catch (error) {
-            console.log("my test for loggr");
+            console.log("my test for loggr", error);
             history.push('/');
         }
     };
@@ -61,13 +61,14 @@ export default function Sources(props, {history}){
                 {sources.map(s => (
                     <li key={s._id}>
                         
-                        {/* <Link
+                        <Link
                         to={{
-                            pathname: `/newsPage/${s}` ,
+                            // pathname: `/newsPage/${s}` ,
+                            pathname: `/SourceNews/${s.sourceName}` ,
                             state: s
                         }}
                         >
-                        <span className="news-title"> {s} </span> </Link> */}
+                        <span className="news-title"> {s.sourceName} </span> </Link>
                         <span className="source-title">  {s.sourceName} </span>
                     </li>
                 ))}

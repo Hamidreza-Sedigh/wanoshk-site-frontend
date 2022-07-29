@@ -20,7 +20,7 @@ export default function OneSourceNews(props, {history}){
 
     useEffect(()=>{
         console.log("index-type:", sourceName);
-        sourceName = props.location.state
+        //sourceName = props.location.state
         console.log("index-type:", sourceName);   
         getOneSourceNews(sourceName)
         //getOneNews(_id)
@@ -52,7 +52,7 @@ export default function OneSourceNews(props, {history}){
                     <li key={ns._id}>
                         <Link
                         to={{
-                            pathname: `/sourcePage/${ns._id}` ,
+                            pathname: `/newsPage/${ns._id}` ,
                             state: ns._id
                         }}
                         >

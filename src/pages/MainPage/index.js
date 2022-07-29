@@ -235,9 +235,9 @@ export default function MainPage({history}){
                     <ButtonGroup>
                         <Button onClick={ () => getNews() } className="button-box">تازه ترین خبر ها </Button>
                         <Button onClick={ () => getMostVisitedDaily() } className="button-box">پربازدیدترین های روز </Button>
-                        <Button onClick={ () => getMostCommentedDaily() } className="button-box">پربحثترین های روز </Button>
+                        {/* <Button onClick={ () => getMostCommentedDaily() } className="button-box">پربحثترین های روز </Button> */}
                         <Button onClick={ () => getMostVisitedWeekly() } className="button-box">پربازدیدترین های هفته </Button>
-                        <Button onClick={ () => getMostCommentedweekly() } className="button-box">پربحثترین های هفته </Button>
+                        {/* <Button onClick={ () => getMostCommentedweekly() } className="button-box">پربحثترین های هفته </Button> */}
                     </ButtonGroup>
                 </div>
                 <p></p>

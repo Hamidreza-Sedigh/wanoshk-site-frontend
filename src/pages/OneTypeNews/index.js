@@ -14,16 +14,34 @@ export default function OneTypeNews(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
-    //const [cSelected, setCSelected] = useState([]); // jean deleted
 
-    let { type } = props.location.state;
+    console.log("URL1:", window.location.href);
+    console.log("URL2:", window.location.pathname);
+
+    
     //console.log(this.props);
     //const id  = this.props.location.state
 
     useEffect(()=>{
-        console.log("index-type:", type);
-        type = props.location.state
-        console.log("index-type:", type);   
+        // console.log("index-type:", type);
+        // type = props.location.state
+        // console.log("index-type:", type);   
+        let type = {};
+
+        if (props.location.state){
+            console.log("if executed");
+            type  = props.location.state;
+        } else {
+            console.log("else executed:");
+            var str = window.location.pathname;
+            console.log("test str:", str);
+            var n = str.lastIndexOf('/');
+            console.log("test n:", n);
+            type = str.substring(n + 1);
+            console.log("test type:", type);
+        }
+        
+        console.log("type selected:", type);
         getOneTypeNews(type)
         //getOneNews(_id)
     },[]);
@@ -46,7 +64,7 @@ export default function OneTypeNews(props, {history}){
             //console.log("TEST:", id);
             const url = `/getOneTypeNews/${newsType}` ;
             const response = await api.get(url, { headers: { user: user }})
-            console.log("RESPONSE:", response.data.news);
+            console.log("RESPONSE(", newsType ,"):", response.data.news);
             setNews(response.data.news);
         } catch (error) {
             console.log("my test for loggr");

@@ -30,7 +30,7 @@ export default function Routes(){
                 <Route path='/contactUs' component={contactUs} />
                 <Route path='/OneTypeNews' component={OneTypeNews} />
                 <Route path='/Sources' component={Sources} />
-                <Route path='/SourceNews' component={OneSourceNews} />
+                <Route path='/SourceNews/:sourceName' component={OneSourceNews} />
             </Switch>
         </BrowserRouter>
     );
