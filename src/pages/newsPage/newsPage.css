@@ -1,6 +1,9 @@
-/* div.main-body{
-    
-} */
+div.main-body{
+    background-color: white;
+    /* margin-left: 5%; */
+    /* padding: auto; */
+    padding: 2% 4% 4% 4%;
+}
 
 div.nav {
     font-family: Tahoma;
@@ -11,7 +14,7 @@ div.news-body{
     font-family: Tahoma;
     font-size: 110%;
     text-align: justify;
-
+    background-color: white;
 }
 
 div h2.news-title{

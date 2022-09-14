@@ -14,8 +14,8 @@ body,
 }
 
 body {
-    background: rgba(0, 0, 0, 0.500) url(./assets/background.jpg) ;
-    
+    /* background: rgba(0, 0, 0, 0.500) url(./assets/background.jpg) ; */
+    background-color: aquamarine;
     -webkit-font-smoothing: antialiased !important;
     /* font-family: Tahoma; */
 }
@@ -48,7 +48,7 @@ input,
 .content {
     width: 100%;
     opacity: 1;
-    background: #ffffff;
+    /* background: #ffffff; */
     margin-top: 50px;
     border-radius: 20px;
     padding: 30px;

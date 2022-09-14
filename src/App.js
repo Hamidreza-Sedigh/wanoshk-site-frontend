@@ -55,13 +55,13 @@ console.log(today);
 function App() {
   return (
     <ContextWrapper>
-      <div className="header">
+      <header className="header">
       {/* <div className="today">
             {today}
       </div> */}
           <h1>وب سایت خبری ونشک</h1>
           
-      </div>
+      </header>
 
       
 

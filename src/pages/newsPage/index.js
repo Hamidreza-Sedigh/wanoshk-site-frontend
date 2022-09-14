@@ -101,7 +101,7 @@ export default function NewsPage(props, {history}){
             <div className='middle'>
                 <p></p>
             </div>
-            <div className="comments">
+            {/* <div className="comments">
                 <p className='commentsTitles'>فرم ارسال نظرات</p>
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
@@ -116,7 +116,7 @@ export default function NewsPage(props, {history}){
                     
                     <Button className="submit-btn">ارسال</Button>
                 </Form>
-            </div>
+            </div> */}
 
         </>
     );
