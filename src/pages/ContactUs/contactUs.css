@@ -4,9 +4,10 @@
     /* direction: rtl; */
     padding: 28px;
     padding-top: 0%;
-    margin: 20px;
+    margin: 4px;
     overflow: 'hidden';
-    border: 3px solid cornflowerblue;
+    /* border: 3px solid cornflowerblue; */
+    border: 0px solid cornflowerblue;
     border-radius: 20px;
 }
 

@@ -2,6 +2,7 @@ import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './sources.css';
+import '../../App.css'
 import { Badge, Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
@@ -56,23 +57,23 @@ export default function Sources(props, {history}){
 
     return(
         <>
-            
-            <ul className="news-list">
-                {sources.map(s => (
-                    <li key={s._id}>
-                        
-                        <Link
-                        to={{
-                            // pathname: `/newsPage/${s}` ,
-                            pathname: `/SourceNews/${s.sourceName}` ,
-                            state: s
-                        }}
-                        >
-                        <span className="news-title"> {s.sourceName} </span> </Link>
-                        <span className="source-title">  {s.sourceName} </span>
-                    </li>
-                ))}
-            </ul>
+            <div className='box'>
+                <ul className="news-list">
+                    {sources.map(s => (
+                        <li key={s._id}>
+                            <Link
+                            to={{
+                                // pathname: `/newsPage/${s}` ,
+                                pathname: `/SourceNews/${s.sourceName}` ,
+                                state: s
+                            }}
+                            >
+                            <span className="news-title"> {s.sourceName} </span> </Link>
+                            <span className="source-title">  {s.sourceName} </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
         </>
     );

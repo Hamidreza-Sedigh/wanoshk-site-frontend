@@ -3,6 +3,7 @@ import api from '../../services/api';
 import { Button, Form, FormGroup, Input, Label, FormText, Alert } from 'reactstrap';
 import {UserContext} from '../../user-context';
 import './contactUs.css';
+import '../../App.css';
 
 export default function ContactUs({history}){
     const { setIsLoggedIn} = useContext(UserContext);
@@ -35,14 +36,14 @@ export default function ContactUs({history}){
 
     return(
         <>
-            <div className="form">
+            <div className="form box">
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <Label for="exampleEmail" className="title">ایمیل</Label>
                         <Input type="email" name="email" id="exampleEmail" placeholder="ایمیل"  onChange={ evt => setEmail(evt.target.value)}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleSelect">انتخاب کنید</Label>
+                        <Label for="exampleSelect"> موضوع </Label>
                         <Input type="select" name="select" id="exampleSelect"  onChange={ evt => setCategory(evt.target.value)}>
                         <option>اضافه شدن به منابع خبری</option>
                         <option>پیشنهاد و انتقادات</option>

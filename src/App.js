@@ -59,7 +59,7 @@ function App() {
       {/* <div className="today">
             {today}
       </div> */}
-          <h1>وب سایت خبری ونشک</h1>
+          <h1>وب سایت خبری کهربا نت</h1>
           
       </header>
 
@@ -94,7 +94,7 @@ function App() {
         <p>
         تمامي خبرهای موجود در سایت به صورت خودکار و توسط نرم افزار از سايت های خبری گردآوري شده است و سايت wanoshk در مورد محتواي اخبار مسئولیتی ندارد.
         </p>
-        <p>wanoshk news</p>
+        <p>kahroba news</p>
       </footer>
 
     </ContextWrapper>
