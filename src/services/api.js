@@ -10,7 +10,7 @@ let environment = 'dev' //dev or opr
 let envURL = '';
 
 if(conf.environment === 'opr'){
-    envURL= 'http://194.36.174.161:8000'
+    envURL= 'http://194.36.174.36:8000'
 } else {
     envURL= 'http://localhost:8000'
 }

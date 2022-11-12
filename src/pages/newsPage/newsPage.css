@@ -16,6 +16,10 @@ div.news-body{
     text-align: justify;
     background-color: white;
 }
+ img{
+    max-width: 100%;
+    width: auto;
+}
 
 div h2.news-title{
     font-family: Tahoma;

@@ -17,8 +17,6 @@ export default function Sources(props, {history}){
     const user_id = localStorage.getItem('user_id');
     //const [cSelected, setCSelected] = useState([]); // jean deleted
 
-    
-    
 
     //let { type } = props.location.state;
     //console.log(this.props);
