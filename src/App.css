@@ -24,18 +24,6 @@ body {
 
 /* new added from main: */
 
-div.box {
-    /* background-color: thistle; */
-    padding: 28px;
-    padding-top: 0%;
-    margin: 20px;
-    /* overflow: 'hidden'; */
-    border: 1px solid #000055 ;
-    /* border: 1px solid  #000055    ; */
-    /* border: 1px solid  #fff   ; */
-    border-radius: 20px;
-    background-color: #fff;
-}
 
 .main-box-title{
     margin: 3px;
