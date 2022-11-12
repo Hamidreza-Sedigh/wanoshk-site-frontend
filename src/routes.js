@@ -13,6 +13,8 @@ import contactUs from './pages/ContactUs';
 import OneTypeNews from './pages/OneTypeNews'
 import Sources from './pages/Sources';
 import OneSourceNews from './pages/oneSourceNews';
+import Tools from './pages/Tools';
+import Convertor from './pages/Tools/Convertor';
 
 export default function Routes(){
     return(
@@ -31,6 +33,9 @@ export default function Routes(){
                 <Route path='/OneTypeNews' component={OneTypeNews} />
                 <Route path='/Sources' component={Sources} />
                 <Route path='/SourceNews/:sourceName' component={OneSourceNews} />
+                <Route path='/Tools' component={Tools} />
+                <Route path='/Convertor' component={Convertor} />
+                
             </Switch>
         </BrowserRouter>
     );

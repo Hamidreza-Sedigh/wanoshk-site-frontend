@@ -66,8 +66,7 @@ export default function Sources(props, {history}){
                                 state: s
                             }}
                             >
-                            <span className="news-title"> {s.sourceName} </span> </Link>
-                            <span className="source-title">  {s.sourceName} </span>
+                            <span className="source-title"> {s.sourceName} </span> </Link>
                         </li>
                     ))}
                 </ul>
