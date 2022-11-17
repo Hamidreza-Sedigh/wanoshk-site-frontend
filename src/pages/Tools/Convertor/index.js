@@ -5,9 +5,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Form,
+  FormGroup,
+  Label,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import './convertor.css';
+import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ConvertRules from './ConvertRules.js';
 
@@ -16,11 +19,11 @@ function Converter({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [dropdownOpen3, setDropdownOpen3] = useState(false);
-  const [quantity, setQuantity] = useState('');
-  const [fromUnit, setFromUnit] = useState('واحد');
-  const [toUnit, setToUnit] = useState('واحد');
-  const [fromUnitCount, setFromUnitCount] = useState('');
-  const [toUnitCount, setToUnitCount] = useState('');
+  const [quantity, setQuantity] = useState('distance');
+  const [fromUnit, setFromUnit] = useState('m');
+  const [toUnit, setToUnit] = useState('m');
+  const [fromUnitCount, setFromUnitCount] = useState(0);
+  const [toUnitCount, setToUnitCount] = useState(0);
   const [unit, setUnit] = useState('');
   const [fromRatio, setFromRatio] = useState(1);
   const [toRatio, setToRatio] = useState(1);
@@ -169,8 +172,10 @@ function Converter({ direction, ...args }) {
       return result;
     } else {
       baseUnitCount = fromUnitCount * fromRatio;
-      result = (baseUnitCount / toRatio).toFixed(4);
+      //result = (baseUnitCount / toRatio).toFixed(1);
+      result = Number((baseUnitCount / toRatio).toFixed(1));
     }
+    //return Math.round(result) ;
     return result;
   }
 
@@ -259,96 +264,124 @@ function Converter({ direction, ...args }) {
 
   return (
     <>
-      <div className="d-flex ">
-        <Dropdown isOpen={dropdownOpen} toggle={toggle1} direction={direction}>
-          <DropdownToggle caret color="primary">
-            {quantityButtonTitle}
-          </DropdownToggle>
-          <DropdownMenu {...args}>
-            {quantityOption
-              //.filter((opt) => opt.group == quantity)
-              .map((qo) => (
-                <DropdownItem value={qo.quantityName} onClick={changeQuantity}>
-                  {qo.quantityPersianName}
+      <div className="ttt">
+        <Form className="center">
+          <FormGroup>
+            <div className="d-flex ">
+              <Label>Quantity: </Label>
+              <Dropdown
+                isOpen={dropdownOpen}
+                toggle={toggle1}
+                direction={direction}
+              >
+                <DropdownToggle caret color="primary">
+                  {/* {quantityButtonTitle} */}
+                  {quantity}
+                </DropdownToggle>
+                <DropdownMenu {...args}>
+                  {quantityOption
+                    //.filter((opt) => opt.group == quantity)
+                    .map((qo) => (
+                      <DropdownItem
+                        value={qo.quantityName}
+                        onClick={changeQuantity}
+                      >
+                        {qo.quantityPersianName}
+                      </DropdownItem>
+                    ))}
+                </DropdownMenu>
+                {/* <DropdownMenu {...args}>
+                <DropdownItem value={'distance'} onClick={changeQuantity}>
+                  طول
                 </DropdownItem>
-              ))}
-          </DropdownMenu>
-          {/* <DropdownMenu {...args}>
-            <DropdownItem value={'distance'} onClick={changeQuantity}>
-              طول
-            </DropdownItem>
-            <DropdownItem value={'volume'} onClick={changeQuantity}>
-              حجم
-            </DropdownItem>
-            <DropdownItem value={'degree'} onClick={changeQuantity}>
-              دما
-            </DropdownItem>
-            <DropdownItem disabled>تاریخ</DropdownItem>
-          </DropdownMenu> */}
-        </Dropdown>
-      </div>
-
-      <div className="d-flex ">
-        <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={direction}>
-          <DropdownToggle caret color="primary">
-            {fromUnitButtonTitle}
-          </DropdownToggle>
-
-          <DropdownMenu {...args}>
-            {options
-              .filter((opt) => opt.group == quantity)
-              .map((op) => (
-                <DropdownItem value={op.unit} onClick={changeFromUnit}>
-                  {op.label}
+                <DropdownItem value={'volume'} onClick={changeQuantity}>
+                  حجم
                 </DropdownItem>
-              ))}
-          </DropdownMenu>
-        </Dropdown>
-      </div>
-
-      {/* <div className="d-flex p-5"> */}
-      <div className="d-flex">
-        <Dropdown isOpen={dropdownOpen3} toggle={toggle3} direction={direction}>
-          <DropdownToggle caret color="primary">
-            {toUnitButtonTitle}
-          </DropdownToggle>
-          <DropdownMenu {...args}>
-            {options
-              .filter((opt) => opt.group == quantity)
-              .map((op) => (
-                <DropdownItem value={op.unit} onClick={changeToUnit}>
-                  {op.label}
+                <DropdownItem value={'degree'} onClick={changeQuantity}>
+                  دما
                 </DropdownItem>
-              ))}
+                <DropdownItem disabled>تاریخ</DropdownItem>
+              </DropdownMenu> */}
+              </Dropdown>
+            </div>
+          </FormGroup>
+          <FormGroup>
+            <div className="d-flex ">
+              <Label>fromUnit: </Label>
+              <Dropdown
+                isOpen={dropdownOpen2}
+                toggle={toggle2}
+                direction={direction}
+              >
+                <DropdownToggle caret color="primary">
+                  {/* {fromUnitButtonTitle} */}
+                  {fromUnit}
+                </DropdownToggle>
 
-            {/* <DropdownItem value={'km'} onClick={changeFromUnit}>
-                کیلو متر              
-              </DropdownItem>
-              <DropdownItem value={'m'} onClick={changeFromUnit}>
-                متر
-              </DropdownItem>
-              <DropdownItem value={'cm'} onClick={changeFromUnit}>
-                سانتی متر
-              </DropdownItem> */}
-          </DropdownMenu>
-        </Dropdown>
-      </div>
+                <DropdownMenu {...args}>
+                  {options
+                    .filter((opt) => opt.group == quantity)
+                    .map((op) => (
+                      <DropdownItem value={op.unit} onClick={changeFromUnit}>
+                        {op.label}
+                      </DropdownItem>
+                    ))}
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          </FormGroup>
+          {/* <div className="d-flex p-5"> */}
+          <FormGroup>
+            <div className="d-flex">
+              <Label>ToUnit: </Label>
+              <Dropdown
+                isOpen={dropdownOpen3}
+                toggle={toggle3}
+                direction={direction}
+              >
+                <DropdownToggle caret color="primary">
+                  {/* {toUnitButtonTitle} */}
+                  {toUnit}
+                </DropdownToggle>
+                <DropdownMenu {...args}>
+                  {options
+                    .filter((opt) => opt.group == quantity)
+                    .map((op) => (
+                      <DropdownItem value={op.unit} onClick={changeToUnit}>
+                        {op.label}
+                      </DropdownItem>
+                    ))}
 
-      {/* <div className="App"> */}
-      <div className="resultBox">
-        <input type="text" value={fromUnitCount} onChange={handleChange} />
-        <p>quantity: {quantity}</p>
-        <p>fromUnit: {fromUnit}</p>
-        <p>fromUnitCount: {fromUnitCount}</p>
-        <p>toUnit: {toUnit}</p>
-        <p>toUnitCount: {toUnitCount}</p>
-        <p>fromRatio: {fromRatio} </p>
-        <p>toRatio: {toRatio} </p>
+                  {/* <DropdownItem value={'km'} onClick={changeFromUnit}>
+                    کیلو متر              
+                  </DropdownItem>
+                  <DropdownItem value={'m'} onClick={changeFromUnit}>
+                    متر
+                  </DropdownItem>
+                  <DropdownItem value={'cm'} onClick={changeFromUnit}>
+                    سانتی متر
+                  </DropdownItem> */}
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          </FormGroup>
+        </Form>
+        {/* <div className="App"> */}
+        <div className="resultBox">
+          <input type="text" value={fromUnitCount} onChange={handleChange} />
+          {/* <p>quantity: {quantity}</p>
+          <p>fromUnit: {fromUnit}</p>
+          <p>fromUnitCount: {fromUnitCount}</p>
+          <p>toUnit: {toUnit}</p>
+          <p>toUnitCount: {toUnitCount}</p>
+          <p>fromRatio: {fromRatio} </p>
+          <p>toRatio: {toRatio} </p> */}
 
-        <p>
-          {/* {km} km is {convert(km)} miles{' '} */}
-          {fromUnitCount} {fromUnit} is {convert(fromUnitCount)} {toUnit}
-        </p>
+          <p className='result'>
+            {/* {km} km is {convert(km)} miles{' '} */}
+            {fromUnitCount} {fromUnit} برابر است با {convert(fromUnitCount)} {toUnit}
+          </p>
+        </div>
       </div>
     </>
   );
