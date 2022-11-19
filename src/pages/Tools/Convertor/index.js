@@ -8,6 +8,7 @@ import {
   Form,
   FormGroup,
   Label,
+  Input,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import './style.css';
@@ -20,14 +21,15 @@ function Converter({ direction, ...args }) {
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [dropdownOpen3, setDropdownOpen3] = useState(false);
   const [quantity, setQuantity] = useState('distance');
-  const [fromUnit, setFromUnit] = useState('m');
+  const [fromUnit, setFromUnit] = useState('km');
   const [toUnit, setToUnit] = useState('m');
-  const [fromUnitPersian, setFromUnitPersian] = useState('m');
-  const [toUnitPersian, setToUnitPersian] = useState('m');
+  const [quantityPersian, setQuantityPersian] = useState('طول');
+  const [fromUnitPersian, setFromUnitPersian] = useState('کیلومتر');
+  const [toUnitPersian, setToUnitPersian] = useState('متر');
   const [fromUnitCount, setFromUnitCount] = useState(0);
   const [toUnitCount, setToUnitCount] = useState(0);
   const [unit, setUnit] = useState('');
-  const [fromRatio, setFromRatio] = useState(1);
+  const [fromRatio, setFromRatio] = useState(1000);
   const [toRatio, setToRatio] = useState(1);
 
   const quantityOption = [
@@ -38,20 +40,20 @@ function Converter({ direction, ...args }) {
     { quantityName: 'force', quantityPersianName: 'نیرو' },
     { quantityName: 'energy', quantityPersianName: 'انرژی' },
     { quantityName: 'temp', quantityPersianName: 'دما' },
-    { quantityName: 'mass', quantityPersianName: 'جرم' },
-    { quantityName: 'gasht', quantityPersianName: 'گشتاور' },
-    { quantityName: 'pressure', quantityPersianName: 'جرم' },
-    { quantityName: 'power', quantityPersianName: 'توان' },
-    { quantityName: 'time', quantityPersianName: 'زمان' },
-    { quantityName: 'density', quantityPersianName: 'چگالی' },
-    { quantityName: 'frequency', quantityPersianName: 'فرکانس' },
-    { quantityName: 'angle', quantityPersianName: 'زاویه' },
-    { quantityName: 'acceleration', quantityPersianName: 'شتاب' },
+    //{ quantityName: 'mass', quantityPersianName: 'جرم' },
+    //{ quantityName: 'gasht', quantityPersianName: 'گشتاور' },
+    //{ quantityName: 'pressure', quantityPersianName: 'فشار' },
+    //{ quantityName: 'power', quantityPersianName: 'توان' },
+    //{ quantityName: 'time', quantityPersianName: 'زمان' },
+    //{ quantityName: 'density', quantityPersianName: 'چگالی' },
+    //{ quantityName: 'frequency', quantityPersianName: 'فرکانس' },
+    //{ quantityName: 'angle', quantityPersianName: 'زاویه' },
+    //{ quantityName: 'acceleration', quantityPersianName: 'شتاب' },
   ];
 
   const options = [
     // { unit: '', label: '', group: '', ratioBase: 0 },
-    //Distance
+    ////Distance
     { unit: 'Mm', label: 'مگامتر', group: 'distance', ratioBase: 1000000 },
     { unit: 'km', label: 'کیلومتر', group: 'distance', ratioBase: 1000 },
     { unit: 'm', label: 'متر', group: 'distance', ratioBase: 1 },
@@ -59,7 +61,7 @@ function Converter({ direction, ...args }) {
     { unit: 'mm', label: 'میلی متر', group: 'distance', ratioBase: 0.001 },
     { unit: 'um', label: 'میکرون', group: 'distance', ratioBase: 0.000001 },
     { unit: 'nm', label: 'نانومتر', group: 'distance', ratioBase: 0.000000001 },
-    //{unit: 'angstrom',label: 'آنگستروم',group: 'distance',ratioBase: 0.0000000001},
+    ////{unit: 'angstrom',label: 'آنگستروم',group: 'distance',ratioBase: 0.0000000001},
     { unit: 'mi', label: 'مایل', group: 'distance', ratioBase: 1.609344 },
     { unit: 'rd', label: 'راد', group: 'distance', ratioBase: 5.0292 },
     { unit: 'fathom', label: 'فاتوم', group: 'distance', ratioBase: 1.8288 },
@@ -67,7 +69,7 @@ function Converter({ direction, ...args }) {
     { unit: 'ft', label: 'پا', group: 'distance', ratioBase: 0.3048 },
     { unit: 'in', label: 'اینچ', group: 'distance', ratioBase: 0.0254 },
 
-    //Aera
+    ////Aera
     { unit: 'km2', label: 'کیلومتر مربع', group: 'area', ratioBase: 1000000 },
     { unit: 'm2', label: 'متر مربع', group: 'area', ratioBase: 1 },
     { unit: 'cm2', label: 'سانتی متر مربع', group: 'area', ratioBase: 0.0001 },
@@ -80,7 +82,7 @@ function Converter({ direction, ...args }) {
     { unit: 'ha', label: 'هکتار', group: 'area', ratioBase: 10000 },
     { unit: 'sqin', label: 'اینچ مربع', group: 'area', ratioBase: 0.00064516 },
 
-    //volume
+    ////volume
     { unit: 'm3', label: 'مترمکعب', group: 'volume', ratioBase: 1 },
     {
       unit: 'cm3',
@@ -95,14 +97,14 @@ function Converter({ direction, ...args }) {
     { unit: 'ml', label: 'میلی لیتر', group: 'volume', ratioBase: 0.000001 },
     { unit: 'impgal', label: 'گالون', group: 'volume', ratioBase: 0.00454609 },
 
-    //speed
+    ////speed
     { unit: 'm/s', label: 'متر بر ثانیه', group: 'speed', ratioBase: 1 },
     { unit: 'km/h', label: 'کیلومتر در ساعت', group: 'speed', ratioBase: 5.18 },
     { unit: 'mph', label: 'مایل بر ساعت', group: 'speed', ratioBase: 0.44704 },
     { unit: 'ft/s', label: 'پا در ثانیه', group: 'speed', ratioBase: 0.3048 },
     { unit: 'knot', label: 'گره', group: 'speed', ratioBase: 4.639 }, //???
 
-    //force
+    ////force
     { unit: 'GN', label: 'گیگا نیوتن', group: 'force', ratioBase: 1 },
     { unit: 'MN', label: 'مگا نیوتن', group: 'force', ratioBase: 1 },
     { unit: 'kN', label: 'کیلو نیوتن', group: 'force', ratioBase: 1 },
@@ -111,7 +113,7 @@ function Converter({ direction, ...args }) {
     { unit: 'uN', label: 'میکرو نیوتن', group: 'force', ratioBase: 1 },
     { unit: 'nN', label: 'نانو نیوتن', group: 'force', ratioBase: 1 },
 
-    //energy
+    ////energy
     { unit: 'J', label: 'ژول', group: 'energy', ratioBase: 1 },
     {
       unit: 'kw.h',
@@ -121,7 +123,7 @@ function Converter({ direction, ...args }) {
     },
     { unit: 'cal', label: 'کالری', group: 'energy', ratioBase: 4184 },
 
-    //temp
+    ////temp
     { unit: 'k', label: 'کلوین', group: 'temp', ratioBase: 1 },
     { unit: 'CO', label: 'سانتی گراد', group: 'temp', ratioBase: 273.15 },
     { unit: 'FO', label: 'فارنهایت', group: 'temp', ratioBase: 1.8 },
@@ -149,7 +151,7 @@ function Converter({ direction, ...args }) {
     let result = 0;
     if (quantity == 'temp') {
       switch (fromUnit) {
-        case 'co':
+        case 'CO':
           baseUnitCount = fromUnitCount;
           break;
         case 'k':
@@ -171,11 +173,15 @@ function Converter({ direction, ...args }) {
           result = (baseUnitCount * 9) / 5 + 32;
           break;
       }
-      return result;
+      return result.toFixed(6);
     } else {
       baseUnitCount = fromUnitCount * fromRatio;
-      result = (baseUnitCount / toRatio).toFixed(1);
+      result = baseUnitCount / toRatio; //.toFixed(2);
       //result = Number((baseUnitCount / toRatio).toFixed(2));
+      //result = result % 1 == 0 ? result : result.toFixed(4);
+      //result = parseFloat(result);
+      result = result * 1;
+      //result = prettyFloat(result);
     }
     //return Math.round(result) ;
     return result;
@@ -239,50 +245,60 @@ function Converter({ direction, ...args }) {
   }
 
   function changeQuantity(e) {
-    console.log("changeQuantity-start");
-    console.log("changeQuantity-start",e.target.value);
+    console.log('changeQuantity-start');
+    console.log('changeQuantity - ', e.target.value);
     //setQuantity = e.value;
     setQuantity(e.target.value);
-    console.log(options.filter((opt)=> opt.group == e.target.value)[0])
-    setFromUnit(options.filter((opt)=> opt.group == e.target.value)[0].unit);
-    setToUnit(options.filter((opt)=> opt.group == e.target.value)[0].unit);
-  
+    console.log('changeQuantity - ', e.target.value);
+    setFromUnit(options.filter((opt) => opt.group == e.target.value)[0].unit);
+    setFromUnitPersian(
+      options.filter((opt) => opt.group == e.target.value)[0].label
+    );
+    setFromRatio(
+      options.filter((opt) => opt.group == e.target.value)[0].ratioBase
+    );
+
+    setToUnit(options.filter((opt) => opt.group == e.target.value)[1].unit);
+    setToUnitPersian(
+      options.filter((opt) => opt.group == e.target.value)[1].label
+    );
+    setToRatio(
+      options.filter((opt) => opt.group == e.target.value)[1].ratioBase
+    );
+
+    setQuantityPersian(
+      quantityOption.filter((qo) => qo.quantityName == e.target.value)[0]
+        .quantityPersianName
+    );
   }
 
   function changeFromUnit(e) {
     setFromUnit(e.target.value);
-    setFromUnitPersian(options.filter((opt) => opt.unit == e.target.value)[0].label);
-    //setRatio(options[0].ratioBase);
-    //let newOpt = options.filter((opt) => opt.unit == e.target.value);
+    setFromUnitPersian(
+      options.filter((opt) => opt.unit == e.target.value)[0].label
+    );
     setFromRatio(
       options.filter((opt) => opt.unit == e.target.value)[0].ratioBase
     );
-    //console.log('newOpt', newOpt);
   }
 
   function changeToUnit(e) {
     setToUnit(e.target.value);
-    setToUnitPersian(options.filter((opt) => opt.unit == e.target.value)[0].label);
+    setToUnitPersian(
+      options.filter((opt) => opt.unit == e.target.value)[0].label
+    );
     setToRatio(
       options.filter((opt) => opt.unit == e.target.value)[0].ratioBase
     );
   }
 
-
-  // function handleButtonChange(e){
-  //   console.log("conv-test.start");
-  //   setFromUnit = options.filter((opt)=> opt.group = e.target.value)[0].unit;
-  //   setToUnit = options.filter((opt)=> opt.group = e.target.value)[0].unit;
-  //   console.log("conv-test.");
-  // }
-
   return (
     <>
-      <div className="ttt">
+      <div className="page">
         <Form className="center">
           <FormGroup>
             <div className="d-flex ">
-              <Label>Quantity: </Label>
+              <Label> یکا : </Label>
               <Dropdown
                 isOpen={dropdownOpen}
                 toggle={toggle1}
@@ -290,9 +306,9 @@ function Converter({ direction, ...args }) {
               >
                 <DropdownToggle caret color="primary">
                   {/* {quantityButtonTitle} */}
-                  {quantity}
+                  {quantityPersian}
                 </DropdownToggle>
-                <DropdownMenu >
+                <DropdownMenu>
                   {quantityOption
                     //.filter((opt) => opt.group == quantity)
                     .map((qo) => (
@@ -305,24 +321,12 @@ function Converter({ direction, ...args }) {
                       </DropdownItem>
                     ))}
                 </DropdownMenu>
-                {/* <DropdownMenu {...args}>
-                <DropdownItem value={'distance'} onClick={changeQuantity}>
-                  طول
-                </DropdownItem>
-                <DropdownItem value={'volume'} onClick={changeQuantity}>
-                  حجم
-                </DropdownItem>
-                <DropdownItem value={'degree'} onClick={changeQuantity}>
-                  دما
-                </DropdownItem>
-                <DropdownItem disabled>تاریخ</DropdownItem>
-              </DropdownMenu> */}
               </Dropdown>
             </div>
           </FormGroup>
           <FormGroup>
             <div className="d-flex ">
-              <Label>fromUnit: </Label>
+              <Label> از واحد : </Label>
               <Dropdown
                 isOpen={dropdownOpen2}
                 toggle={toggle2}
@@ -330,14 +334,18 @@ function Converter({ direction, ...args }) {
               >
                 <DropdownToggle caret color="primary">
                   {/* {fromUnitButtonTitle} */}
-                  {fromUnit}
+                  {fromUnitPersian}
                 </DropdownToggle>
 
                 <DropdownMenu>
                   {options
                     .filter((opt) => opt.group == quantity)
                     .map((op) => (
-                      <DropdownItem key={op.unit} value={op.unit} onClick={changeFromUnit}>
+                      <DropdownItem
+                        key={op.unit}
+                        value={op.unit}
+                        onClick={changeFromUnit}
+                      >
                         {op.label}
                       </DropdownItem>
                     ))}
@@ -348,7 +356,7 @@ function Converter({ direction, ...args }) {
           {/* <div className="d-flex p-5"> */}
           <FormGroup>
             <div className="d-flex">
-              <Label>ToUnit: </Label>
+              <Label> به واحد : </Label>
               <Dropdown
                 isOpen={dropdownOpen3}
                 toggle={toggle3}
@@ -356,26 +364,20 @@ function Converter({ direction, ...args }) {
               >
                 <DropdownToggle caret color="primary">
                   {/* {toUnitButtonTitle} */}
-                  {toUnit}
+                  {toUnitPersian}
                 </DropdownToggle>
-                <DropdownMenu >
+                <DropdownMenu>
                   {options
                     .filter((opt) => opt.group == quantity)
                     .map((op) => (
-                      <DropdownItem key={op.unit} value={op.unit} onClick={changeToUnit}>
+                      <DropdownItem
+                        key={op.unit}
+                        value={op.unit}
+                        onClick={changeToUnit}
+                      >
                         {op.label}
                       </DropdownItem>
                     ))}
-
-                  {/* <DropdownItem value={'km'} onClick={changeFromUnit}>
-                    کیلو متر              
-                  </DropdownItem>
-                  <DropdownItem value={'m'} onClick={changeFromUnit}>
-                    متر
-                  </DropdownItem>
-                  <DropdownItem value={'cm'} onClick={changeFromUnit}>
-                    سانتی متر
-                  </DropdownItem> */}
                 </DropdownMenu>
               </Dropdown>
             </div>
@@ -384,17 +386,17 @@ function Converter({ direction, ...args }) {
         {/* <div className="App"> */}
         <div className="resultBox">
           <input type="text" value={fromUnitCount} onChange={handleChange} />
-          <p>quantity: {quantity}</p>
+          {/* <p>quantity: {quantity}</p>
           <p>fromUnit: {fromUnit}</p>
           <p>fromUnitCount: {fromUnitCount}</p>
           <p>toUnit: {toUnit}</p>
           <p>toUnitCount: {toUnitCount}</p>
           <p>fromRatio: {fromRatio} </p>
-          <p>toRatio: {toRatio} </p>
+          <p>toRatio: {toRatio} </p> */}
 
-          <p className='result'>
-            {/* {km} km is {convert(km)} miles{' '} */}
-            {fromUnitCount} {fromUnitPersian} برابر است با {convert(fromUnitCount)} {toUnitPersian}
+          <p className="result">
+            {fromUnitCount} {fromUnitPersian} برابر است با{' '}
+            {convert(fromUnitCount)} {toUnitPersian}
           </p>
         </div>
       </div>
