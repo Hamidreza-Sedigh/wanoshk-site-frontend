@@ -22,6 +22,8 @@ function Converter({ direction, ...args }) {
   const [quantity, setQuantity] = useState('distance');
   const [fromUnit, setFromUnit] = useState('m');
   const [toUnit, setToUnit] = useState('m');
+  const [fromUnitPersian, setFromUnitPersian] = useState('m');
+  const [toUnitPersian, setToUnitPersian] = useState('m');
   const [fromUnitCount, setFromUnitCount] = useState(0);
   const [toUnitCount, setToUnitCount] = useState(0);
   const [unit, setUnit] = useState('');
@@ -172,8 +174,8 @@ function Converter({ direction, ...args }) {
       return result;
     } else {
       baseUnitCount = fromUnitCount * fromRatio;
-      //result = (baseUnitCount / toRatio).toFixed(1);
-      result = Number((baseUnitCount / toRatio).toFixed(1));
+      result = (baseUnitCount / toRatio).toFixed(1);
+      //result = Number((baseUnitCount / toRatio).toFixed(2));
     }
     //return Math.round(result) ;
     return result;
@@ -237,12 +239,19 @@ function Converter({ direction, ...args }) {
   }
 
   function changeQuantity(e) {
+    console.log("changeQuantity-start");
+    console.log("changeQuantity-start",e.target.value);
     //setQuantity = e.value;
     setQuantity(e.target.value);
+    console.log(options.filter((opt)=> opt.group == e.target.value)[0])
+    setFromUnit(options.filter((opt)=> opt.group == e.target.value)[0].unit);
+    setToUnit(options.filter((opt)=> opt.group == e.target.value)[0].unit);
+  
   }
 
   function changeFromUnit(e) {
     setFromUnit(e.target.value);
+    setFromUnitPersian(options.filter((opt) => opt.unit == e.target.value)[0].label);
     //setRatio(options[0].ratioBase);
     //let newOpt = options.filter((opt) => opt.unit == e.target.value);
     setFromRatio(
@@ -253,14 +262,19 @@ function Converter({ direction, ...args }) {
 
   function changeToUnit(e) {
     setToUnit(e.target.value);
+    setToUnitPersian(options.filter((opt) => opt.unit == e.target.value)[0].label);
     setToRatio(
       options.filter((opt) => opt.unit == e.target.value)[0].ratioBase
     );
   }
 
-  function distanceQantity() {
-    setQuantity('distance');
-  }
+
+  // function handleButtonChange(e){
+  //   console.log("conv-test.start");
+  //   setFromUnit = options.filter((opt)=> opt.group = e.target.value)[0].unit;
+  //   setToUnit = options.filter((opt)=> opt.group = e.target.value)[0].unit;
+  //   console.log("conv-test.");
+  // }
 
   return (
     <>
@@ -278,11 +292,12 @@ function Converter({ direction, ...args }) {
                   {/* {quantityButtonTitle} */}
                   {quantity}
                 </DropdownToggle>
-                <DropdownMenu {...args}>
+                <DropdownMenu >
                   {quantityOption
                     //.filter((opt) => opt.group == quantity)
                     .map((qo) => (
                       <DropdownItem
+                        key={qo.quantityName}
                         value={qo.quantityName}
                         onClick={changeQuantity}
                       >
@@ -318,11 +333,11 @@ function Converter({ direction, ...args }) {
                   {fromUnit}
                 </DropdownToggle>
 
-                <DropdownMenu {...args}>
+                <DropdownMenu>
                   {options
                     .filter((opt) => opt.group == quantity)
                     .map((op) => (
-                      <DropdownItem value={op.unit} onClick={changeFromUnit}>
+                      <DropdownItem key={op.unit} value={op.unit} onClick={changeFromUnit}>
                         {op.label}
                       </DropdownItem>
                     ))}
@@ -343,11 +358,11 @@ function Converter({ direction, ...args }) {
                   {/* {toUnitButtonTitle} */}
                   {toUnit}
                 </DropdownToggle>
-                <DropdownMenu {...args}>
+                <DropdownMenu >
                   {options
                     .filter((opt) => opt.group == quantity)
                     .map((op) => (
-                      <DropdownItem value={op.unit} onClick={changeToUnit}>
+                      <DropdownItem key={op.unit} value={op.unit} onClick={changeToUnit}>
                         {op.label}
                       </DropdownItem>
                     ))}
@@ -369,17 +384,17 @@ function Converter({ direction, ...args }) {
         {/* <div className="App"> */}
         <div className="resultBox">
           <input type="text" value={fromUnitCount} onChange={handleChange} />
-          {/* <p>quantity: {quantity}</p>
+          <p>quantity: {quantity}</p>
           <p>fromUnit: {fromUnit}</p>
           <p>fromUnitCount: {fromUnitCount}</p>
           <p>toUnit: {toUnit}</p>
           <p>toUnitCount: {toUnitCount}</p>
           <p>fromRatio: {fromRatio} </p>
-          <p>toRatio: {toRatio} </p> */}
+          <p>toRatio: {toRatio} </p>
 
           <p className='result'>
             {/* {km} km is {convert(km)} miles{' '} */}
-            {fromUnitCount} {fromUnit} برابر است با {convert(fromUnitCount)} {toUnit}
+            {fromUnitCount} {fromUnitPersian} برابر است با {convert(fromUnitCount)} {toUnitPersian}
           </p>
         </div>
       </div>
