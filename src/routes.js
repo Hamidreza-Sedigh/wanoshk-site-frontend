@@ -15,6 +15,10 @@ import Sources from './pages/Sources';
 import OneSourceNews from './pages/oneSourceNews';
 import Tools from './pages/Tools';
 import Convertor from './pages/Tools/Convertor';
+import DateConvertor from './pages/Tools/ConvertDate';
+import CurrencyConvertor from './pages/Tools/ConvertCurrency';
+import PlayerRoles from './pages/Tools/PlayerRoles';
+
 
 export default function Routes(){
     return(
@@ -35,7 +39,9 @@ export default function Routes(){
                 <Route path='/SourceNews/:sourceName' component={OneSourceNews} />
                 <Route path='/Tools' component={Tools} />
                 <Route path='/Convertor' component={Convertor} />
-                
+                <Route path='/DateConvertor' component={DateConvertor} />
+                <Route path='/CurrencyConvertor' component={CurrencyConvertor} />
+                <Route path='/PlayerRoles' component={PlayerRoles} />
             </Switch>
         </BrowserRouter>
     );
