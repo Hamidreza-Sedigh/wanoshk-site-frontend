@@ -4,29 +4,10 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.page {
-  margin: auto;
-  /* width: 50%; */
+.body {
   direction: rtl;
   background-color: white;
+  text-align: right;
   padding: 10px;
-}
-
-/* 
-div.1resultBox {
-  margin: auto;
-  width: 80%;
-  direction: rtl;
-} */
-
-/* 
-.center{
-  margin: auto;
-  width: 00%;
-} */
-
-.result {
-  /* align-items: center; */
-  /* text-align: center; */
-  direction: rtl;
+  border-radius: 10px;
 }

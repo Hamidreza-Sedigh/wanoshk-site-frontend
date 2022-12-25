@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import React, { useState, useEffect } from 'react';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import { DatePickerJal } from 'jalali-react-datepicker';
 //@material-ui/pickers
 import 'react-datepicker/dist/react-datepicker.css';
 import './style.css';
 //import fa from 'date-fns/locale/fa';
-//import { fa } from 'date-fns/locale';
+// import { fa } from 'date-fns/locale';
 import { Input } from 'reactstrap';
 import momentJa from 'moment-jalali';
 import momentJaa from 'moment-jalaali';
-//registerLocale('fa', fa);
+// registerLocale('fa', fa);
 
 export default function App() {
   const [datep, setDatep] = useState(new Date());
   const [targetDate, setTargetDate] = useState('');
 
-  const [dateStrap, setDateStrap] = useState(new Date());
-  const [targetDateStrap, setTargetDateStrap] = useState(new Date());
+  const [dateStrap, setDateStrap] = useState(
+    new Date().toLocaleDateString('ar-MA')
+  );
+  const [targetDateStrap, setTargetDateStrap] = useState('');
 
   //const [year, setYear] = useState(new Date().getFullYear());jYear()
   const [year, setYear] = useState(momentJaa(new Date()).jYear());
   const [month, setMonth] = useState(momentJaa(new Date()).jMonth() + 1);
   const [day, setDay] = useState(momentJaa(new Date()).jDate());
+  const [fulldateShamsi, setFulldateShamsi] = useState(new Date());
   const [targetDateSim, setTargetDateSim] = useState('');
+
+  const [dateShown, setDateShown] = useState('');
+
+  // useEffect(() => {
+  //   setDateShown(dateStrap.toLocaleDateString().toString());
+  // });
 
   function handleChange(inDate) {
     console.log('handeChange- inDate:', inDate);
@@ -42,12 +51,12 @@ export default function App() {
     );
   }
 
-  function handleChange2() {
-    console.log('handeChange- dateStrap:', dateStrap);
-    //setDateStrap(e.target.value);
-
-    //let m = momentJaa(dateStrap, 'YYYY/MM/DD');
-    let m = momentJaa(dateStrap);
+  function handleChange2(e) {
+    console.log('handeChange2- dateStrap before:', dateStrap);
+    console.log('handeChange2- input before:', e.target.value);
+    setDateStrap(e.target.value);
+    //let m = momentJaa(dateStrap);
+    let m = momentJaa(e.target.value);
 
     console.log(
       new Intl.DateTimeFormat('fa-IR', {
@@ -93,30 +102,36 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>Date Convert</h1>
-      <p>datep : {datep.toString()}</p>
-      <p>datepLoc: {datep.toLocaleString().toString()}</p>
-      <p>targetDate: {targetDate} </p>
+    <div className="body">
+      <h1>تبدیل تاریخ</h1>
+      {/* <p>datep : {datep.toString()}</p> */}
+      <p>
+        تاریخ میلادی: {datep.toLocaleDateString('ar-MA').toString()}
+        برابر است با: {targetDate}
+      </p>
+      <p></p>
       <DatePicker
         selected={datep}
         // locale="fa"
         onChange={(date) => handleChange(date)}
       />
       <hr />
-
-      <p>date: {dateStrap.toString()}</p>
-      <p>targetDate: {targetDateStrap.toString()}</p>
+      <p>
+        {/* تاریخ میلادی : {dateStrap.toLocaleDateString('ar-MA').toString()} */}
+        تاریخ میلادی : {dateStrap.toString()}
+      </p>
+      <p>{dateShown}</p>
+      <p>برابر است با : {targetDateStrap.toString()}</p>
       <Input
         id="dateId"
         type="date"
         value={dateStrap}
-        // placeholder={'Event Price £0.00'}
         // onChange={(evt) => handleChange2(evt)}
-        onChange={(e) => {
-          setDateStrap(e.target.value);
-          handleChange2();
-        }}
+        // onChange={(e) => {
+        //   setDateStrap(e.target.value);
+        //   handleChange2();
+        // }}
+        onChange={(date) => handleChange2(date)}
       />
       <hr />
       <p></p>
@@ -142,6 +157,10 @@ export default function App() {
         onChange={(evt) => setDay(evt.target.value)}
       />
       <input type="button" value={'محاسبه'} onClick={() => handleSubmit()} />
+      <p>
+        تاریخ شمسی: {fulldateShamsi.toString()}
+        تاریخ میلادی: {targetDateSim}
+      </p>
       <p>targetDate: {targetDateSim}</p>
     </div>
   );

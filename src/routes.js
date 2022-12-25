@@ -18,6 +18,7 @@ import Convertor from './pages/Tools/Convertor';
 import DateConvertor from './pages/Tools/ConvertDate';
 import CurrencyConvertor from './pages/Tools/ConvertCurrency';
 import PlayerRoles from './pages/Tools/PlayerRoles';
+import GoldCalc from './pages/Tools/GoldCalc';
 
 
 export default function Routes(){
@@ -42,6 +43,7 @@ export default function Routes(){
                 <Route path='/DateConvertor' component={DateConvertor} />
                 <Route path='/CurrencyConvertor' component={CurrencyConvertor} />
                 <Route path='/PlayerRoles' component={PlayerRoles} />
+                <Route path='/GoldCalc' component={GoldCalc} />
             </Switch>
         </BrowserRouter>
     );
