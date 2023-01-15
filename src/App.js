@@ -6,6 +6,9 @@ import Routes from './routes';
 import {ContextWrapper} from './user-context'
 import './App.css';
 import moment from 'moment';
+import momentJaa from 'moment-jalaali';
+import Footer from './components/Footer';
+
 
 //import { Route } from 'react-router-dom';
 //import impTest from './pages/MainPage/index';
@@ -50,10 +53,17 @@ let d = n.getDate();
 //document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 //let today = m + "/" + d + "/" + y ;
 let options = { year: 'numeric',  day: 'numeric', month: 'long' };
-let today = new Date().toLocaleDateString('fa-IR');
+// let today = new Date().toLocaleDateString('fa-IR');
 //today = new Date().toLocaleDateString('fa-IR', options);
+let today = new Date();
+let momDate = momentJaa(today);
+let todayDisplay =   new Intl.DateTimeFormat('fa-IR', {
+    dateStyle: 'full',
+    // timeStyle: 'long',
+  }).format(momDate)
+;
 
-console.log(today);
+console.log("app-today:", today);
 
 function App() {
   return (
@@ -81,7 +91,7 @@ function App() {
           </Nav>
         </div>  
         <div>
-          {today}    
+          {todayDisplay}    
         </div>
       </div>
 
@@ -101,6 +111,8 @@ function App() {
         </p>
         <p>kahroba news</p>
       </footer>
+
+      <Footer/>      
 
     </ContextWrapper>
   );

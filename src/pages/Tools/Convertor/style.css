@@ -29,4 +29,5 @@ div.1resultBox {
   /* align-items: center; */
   /* text-align: center; */
   direction: rtl;
+  text-align: right;
 }

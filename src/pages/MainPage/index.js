@@ -30,7 +30,7 @@ export default function MainPage({history}){
     const [dropdownOpen, setDropdownOpen ] = useState(false);
     const [eventRequestMessage, setEventRequestMessage ] = useState('');
     const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
-
+    
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
     //activePage = 2;
@@ -45,10 +45,10 @@ export default function MainPage({history}){
         getSportNews();
         getTechNews();
         //getLatestNews();
-        getMostVisitedDaily();
-        getMostVisitedWeekly();
-        getMostCommentedDaily();
-        getMostCommentedweekly();
+        // getMostVisitedDaily();
+        // getMostVisitedWeekly();
+        // getMostCommentedDaily();
+        // getMostCommentedweekly();
     },[]);
 
     // const socket = useMemo( 
@@ -71,6 +71,7 @@ export default function MainPage({history}){
             const url = '/getNews';
             const response = await api.get(url, { headers: { user: user }})
             setNews(response.data.news)
+            setRSelected(1);
         } catch (error) {
             console.log("my test for loggr");
             history.push('/');
@@ -135,6 +136,7 @@ export default function MainPage({history}){
         try {
             const response = await api.post('/getMostVisitedDaily', {  });
             setNews(response.data.news)
+            setRSelected(2);
         } catch (error) {
             console.log("my test for loggr");
             history.push('/');
@@ -145,6 +147,7 @@ export default function MainPage({history}){
         try {
             const response = await api.post('/getMostVisitedWeekly', {  });
             setNews(response.data.news)
+            setRSelected(3);
         } catch (error) {
             console.log("my test for loggr");
             history.push('/');
@@ -233,11 +236,11 @@ export default function MainPage({history}){
             {/* boxes */}
                 <div className="box-title main-box-title">
                     <ButtonGroup>
-                        <Button onClick={ () => getNews() } className="button-box">تازه ترین خبر ها </Button>
-                        <Button onClick={ () => getMostVisitedDaily() } className="button-box">پربازدیدترین های روز </Button>
-                        {/* <Button onClick={ () => getMostCommentedDaily() } className="button-box">پربحثترین های روز </Button> */}
-                        <Button onClick={ () => getMostVisitedWeekly() } className="button-box">پربازدیدترین های هفته </Button>
-                        {/* <Button onClick={ () => getMostCommentedweekly() } className="button-box">پربحثترین های هفته </Button> */}
+                        <Button onClick={ () => getNews() } className="button-box" color="primary" outline active={rSelected === 1}>تازه ترین خبر ها </Button>
+                        <Button onClick={ () => getMostVisitedDaily() } className="button-box" color="primary" outline active={rSelected === 2}>پربازدیدترین های روز </Button>
+                        {/* <Button onClick={ () => getMostCommentedDaily() } className="button-box" color="primary" outline active={rSelected === 1}>پربحثترین های روز </Button> */}
+                        <Button onClick={ () => getMostVisitedWeekly() } className="button-box" color="primary" outline active={rSelected === 3}>پربازدیدترین های هفته </Button>
+                        {/* <Button onClick={ () => getMostCommentedweekly() } className="button-box" color="primary" outline active={rSelected === 1}>پربحثترین های هفته </Button> */}
                     </ButtonGroup>
                 </div>
                 <p></p>

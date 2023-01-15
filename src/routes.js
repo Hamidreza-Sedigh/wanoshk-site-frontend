@@ -42,7 +42,7 @@ export default function Routes(){
                 <Route path='/Convertor' component={Convertor} />
                 <Route path='/DateConvertor' component={DateConvertor} />
                 <Route path='/CurrencyConvertor' component={CurrencyConvertor} />
-                <Route path='/PlayerRoles' component={PlayerRoles} />
+                {/* <Route path='/PlayerRoles' component={PlayerRoles} /> */}
                 <Route path='/GoldCalc' component={GoldCalc} />
             </Switch>
         </BrowserRouter>
