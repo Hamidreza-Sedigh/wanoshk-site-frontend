@@ -2,7 +2,7 @@ import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './mainPage.css';
-import { Button, ButtonGroup, Badge, Alert, Container, Row, Col } from 'reactstrap';
+import { Button, ButtonGroup, Badge, Alert, Container, Row, Col,Spinner } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
@@ -30,6 +30,12 @@ export default function MainPage({history}){
     const [dropdownOpen, setDropdownOpen ] = useState(false);
     const [eventRequestMessage, setEventRequestMessage ] = useState('');
     const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
+    const [loading1, setLoading1] = useState(true);
+    const [loading2, setLoading2] = useState(true);
+    const [loading3, setLoading3] = useState(true);
+    const [loading4, setLoading4] = useState(true);
+    const [loading5, setLoading5] = useState(true);
+    const [loading6, setLoading6] = useState(true);
     
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
@@ -70,9 +76,11 @@ export default function MainPage({history}){
             //const url = filter ? `/dashboard/${filter}` : `/dashboard`
             const url = '/getNews';
             const response = await api.get(url, { headers: { user: user }})
-            setNews(response.data.news)
+            setNews(response.data.news);
+            setLoading1(false);
             setRSelected(1);
         } catch (error) {
+            setLoading1(false);
             console.log("my test for loggr");
             history.push('/');
         }
@@ -82,8 +90,10 @@ export default function MainPage({history}){
         try {
             let type = 'a';
             const response = await api.post('/getNewsType', { type });
+            setLoading2(false);
             setPoliticNews(response.data.news)
         } catch (error) {
+            setLoading2(false);
             console.log("my test for loggr");
             history.push('/');
         }
@@ -93,8 +103,10 @@ export default function MainPage({history}){
         try {
             let type = 'b';
             const response = await api.post('/getNewsType', { type });
+            setLoading3(false);
             setEconomicNews(response.data.news)
         } catch (error) {
+            setLoading3(false);
             console.log("my test for loggr");
             history.push('/');
         }
@@ -104,8 +116,10 @@ export default function MainPage({history}){
         try {
             let type = 'c';
             const response = await api.post('/getNewsType', { type });
+            setLoading4(false);
             setSportNews(response.data.news)
         } catch (error) {
+            setLoading4(false);
             console.log("my test for loggr");
             history.push('/');
         }
@@ -243,8 +257,8 @@ export default function MainPage({history}){
                         {/* <Button onClick={ () => getMostCommentedweekly() } className="button-box" color="primary" outline active={rSelected === 1}>پربحثترین های هفته </Button> */}
                     </ButtonGroup>
                 </div>
-                <p></p>
-                
+
+                <div className="loading">{loading1? <Spinner color="primary"></Spinner> : <></>} </div>
                 <ul className="news-list">
                     {news.map(ns => (
                         <li key={ns._id}>
@@ -271,6 +285,7 @@ export default function MainPage({history}){
                 <div className="box-title">
                     اخبار سیاسی
                 </div>
+                <div className="loading">{loading2? <Spinner color="primary"></Spinner> : <></>} </div>
                 <ul className="news-list">
                     {politicNews.map(ns => (
                         <li key={ns._id}>
@@ -304,6 +319,7 @@ export default function MainPage({history}){
                 <div className="box-title">
                     اخبار اقتصادی
                 </div>
+                <div className="loading">{loading3? <Spinner color="primary"></Spinner> : <></>} </div>
                 <ul className="news-list">
                     {economicNews.map(ns => (
                         <li key={ns._id}>
@@ -337,6 +353,7 @@ export default function MainPage({history}){
                 <div className="box-title">
                     اخبار ورزشی
                 </div>
+                <div className="loading">{loading4? <Spinner color="primary"></Spinner> : <></>} </div>
                 <ul className="news-list">
                     {sportNews.map(ns => (
                         <li key={ns._id}>
