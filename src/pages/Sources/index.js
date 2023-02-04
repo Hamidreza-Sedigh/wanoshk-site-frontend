@@ -62,11 +62,11 @@ export default function Sources(props, {history}){
                             <Link
                             to={{
                                 // pathname: `/newsPage/${s}` ,
-                                pathname: `/SourceNews/${s.sourceName}` ,
+                                pathname: `/SourceNews/${s}` ,
                                 state: s
                             }}
                             >
-                            <span className="source-title"> {s.sourceName} </span> </Link>
+                            <span className="source-title"> {s} </span> </Link>
                         </li>
                     ))}
                 </ul>

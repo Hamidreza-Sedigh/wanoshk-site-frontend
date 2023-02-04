@@ -83,8 +83,8 @@ function App() {
         <div>
           <Nav pills>
               <NavLink href="/" active={activePage === 1} >صفحه اصلی</NavLink> 
-              <NavLink href="/tools" active={activePage === 5}>ابزار</NavLink> 
               <NavLink href="/Sources" active={activePage === 2} > منابع خبری </NavLink> 
+              <NavLink href="/tools" active={activePage === 5}>ابزار</NavLink> 
               <NavLink href="/aboutUs" active={activePage === 3} >درباره ما</NavLink> 
               <NavLink href="/contactUs" active={activePage === 4}>تماس با ما</NavLink> 
               

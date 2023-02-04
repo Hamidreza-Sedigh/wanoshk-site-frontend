@@ -15,13 +15,13 @@ export default function OneSourceNews(props, {history}){
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
 
-    let { sourceName } = props.location.state;
+    //let { sourceName } = props.location.state;
     //console.log(this.props);
     //const id  = this.props.location.state
 
     useEffect(()=>{
-        console.log("index-type:", sourceName);
-        //sourceName = props.location.state
+        console.log("My test:", props);
+        var sourceName = props.location.state
         console.log("index-type:", sourceName);   
         getOneSourceNews(sourceName)
         //getOneNews(_id)
