@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import {
   Dropdown,
   DropdownToggle,
@@ -18,10 +18,10 @@ function Converter({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [dropdownOpen3, setDropdownOpen3] = useState(false);
-  const [quantity, setQuantity] = useState('distance');
+  // const [quantity, setQuantity] = useState('distance');
   const [fromCurrency, setFromCurrency] = useState('dollor');
   const [toCurrency, setToCurrency] = useState('rial');
-  const [quantityPersian, setQuantityPersian] = useState('طول');
+  // const [quantityPersian, setQuantityPersian] = useState('طول');
   const [fromCurrencyPersian, setFromCurrencyPersian] = useState('دلار');
   const [toCurrencyPersian, setToCurrencyPersian] = useState('ریال');
   const [fromCurrencyAmount, setFromCurrencyAmount] = useState(0);
@@ -43,9 +43,9 @@ function Converter({ direction, ...args }) {
   const toggle2 = () => setDropdownOpen2((prevState2) => !prevState2);
   const toggle3 = () => setDropdownOpen3((prevState3) => !prevState3);
 
-  let quantityButtonTitle = 'کمیت';
-  let fromUnitButtonTitle = 'از واحد';
-  let toUnitButtonTitle = 'به واحد';
+  // let quantityButtonTitle = 'کمیت';
+  // let fromUnitButtonTitle = 'از واحد';
+  // let toUnitButtonTitle = 'به واحد';
 
   function handleChange(e) {
     //setKm(e.target.value);
@@ -69,7 +69,7 @@ function Converter({ direction, ...args }) {
     //result = prettyFloat(result);
     //return Math.round(result) ;
 
-    if (toCurrency == 'rial')
+    if (toCurrency === 'rial')
       result = new Intl.NumberFormat('de-DE', {
         style: 'currency',
         currency: 'IRR',
@@ -81,20 +81,20 @@ function Converter({ direction, ...args }) {
   function changeFromCurrency(e) {
     setFromCurrency(e.target.value);
     setFromCurrencyPersian(
-      options.filter((opt) => opt.currency == e.target.value)[0].label
+      options.filter((opt) => opt.currency === e.target.value)[0].label
     );
     setFromRatio(
-      options.filter((opt) => opt.currency == e.target.value)[0].ratioBuy
+      options.filter((opt) => opt.currency === e.target.value)[0].ratioBuy
     );
   }
 
   function changeToCurrency(e) {
     setToCurrency(e.target.value);
     setToCurrencyPersian(
-      options.filter((opt) => opt.currency == e.target.value)[0].label
+      options.filter((opt) => opt.currency === e.target.value)[0].label
     );
     setToRatio(
-      options.filter((opt) => opt.currency == e.target.value)[0].ratioBuy
+      options.filter((opt) => opt.currency === e.target.value)[0].ratioBuy
     );
   }
 

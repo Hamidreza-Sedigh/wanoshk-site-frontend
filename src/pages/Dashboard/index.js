@@ -2,12 +2,10 @@ import React, {useEffect, useState, useMemo} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './dashboard.css'
-import { Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Button, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import socketio from 'socket.io-client';
-//import Registration from '../../../../backend/src/models/Registration';
 
 
-//dashboard will show all the events       
 export default function Dashboard({history}){
     const [events, setEvents] = useState([]);
     const user = localStorage.getItem('user');
@@ -89,8 +87,6 @@ export default function Dashboard({history}){
         
     }
 
-
-
     const registrationRequsetHandler = async (event) =>{
         try {
             console.log("function works");
@@ -114,39 +110,39 @@ export default function Dashboard({history}){
         }
     }
 
-    const acceptEventHandler = async (eventId) =>{
-        try {
-            console.log("accept hit");
-            //const response = await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }}) //console.log("response:", response)
-            await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }})    
-            setEventRequestSuccess(true);
-            setEventRequestMessage('Event approved succesfully');
-            removeNotification(eventId);
-            setTimeout(()=>{
-                setEventRequestSuccess(false)
-                setEventRequestMessage('');
-            }, 2500)
-        } catch(error) {
-            console.log(error)
-        }        
-    }
+    // const acceptEventHandler = async (eventId) =>{
+    //     try {
+    //         console.log("accept hit");
+    //         //const response = await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }}) //console.log("response:", response)
+    //         await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }})    
+    //         setEventRequestSuccess(true);
+    //         setEventRequestMessage('Event approved succesfully');
+    //         removeNotification(eventId);
+    //         setTimeout(()=>{
+    //             setEventRequestSuccess(false)
+    //             setEventRequestMessage('');
+    //         }, 2500)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }        
+    // }
 
-    const rejectEventHandler = async (eventId) =>{
-        try {
-            console.log("accept hit");
-            //const response = await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }}) //console.log("response:", response)
-            await api.post(`/registration/${eventId}/rejections`, {}, {headers: { user }})    
-            setEventRequestSuccess(true);
-            setEventRequestMessage('Event rejected succesfully');
-            removeNotification(eventId);
-            setTimeout(()=>{
-                setEventRequestSuccess(false)
-                setEventRequestMessage('');
-            }, 2500)
-        } catch(error) {
-            console.log(error)
-        }
-    }
+    // const rejectEventHandler = async (eventId) =>{
+    //     try {
+    //         console.log("accept hit");
+    //         //const response = await api.post(`/registration/${eventId}/approvals`, {}, {headers: { user }}) //console.log("response:", response)
+    //         await api.post(`/registration/${eventId}/rejections`, {}, {headers: { user }})    
+    //         setEventRequestSuccess(true);
+    //         setEventRequestMessage('Event rejected succesfully');
+    //         removeNotification(eventId);
+    //         setTimeout(()=>{
+    //             setEventRequestSuccess(false)
+    //             setEventRequestMessage('');
+    //         }, 2500)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }
 
     const removeNotification = (eventId) => {
         const newEvents = eventsRequest.filter((event) => event._id !== eventId )

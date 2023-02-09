@@ -1,11 +1,12 @@
-import React, {useEffect, useState, useMemo} from 'react';
-import api from '../../services/api';
+// import React, {useEffect, useState, useMemo} from 'react';
+import React from 'react';
+// import api from '../../services/api';
 import './aboutUs.css';
 import '../../App.css'
 
 export default function aboutUs(props, {history}){
-    const user = localStorage.getItem('user');
-    const user_id = localStorage.getItem('user_id');
+    // const user = localStorage.getItem('user');
+    // const user_id = localStorage.getItem('user_id');
 
 
     return(

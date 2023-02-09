@@ -186,4 +186,8 @@ input,
     text-align: center;
     background: #dddddd;
     width: 100%;
+    color: black;
+}
+.footer p{
+    color: black;
 }

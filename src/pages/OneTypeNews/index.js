@@ -1,20 +1,19 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './OneTypeNews.css';
 import '../../App.css';
-import { Badge, Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import ReactDom from 'react-dom';
-import socketio from 'socket.io-client';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-//import Registration from '../../../../backend/src/models/Registration';
+import { Badge } from 'reactstrap';
+// import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
+// import ReactDom from 'react-dom';
+// import socketio from 'socket.io-client';
+// import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 export default function OneTypeNews(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
-    const user_id = localStorage.getItem('user_id');
+    // const user_id = localStorage.getItem('user_id');
 
     console.log("URL1:", window.location.href);
     console.log("URL2:", window.location.pathname);
@@ -47,22 +46,11 @@ export default function OneTypeNews(props, {history}){
         //getOneNews(_id)
     },[]);
 
-    // const socket = useMemo( 
-    //     () => 
-    //     socketio('http://194.36.174.135:8000/', { query: { user: user_id } }),
-    //     [user_id]
-    //     );
 
-    // useEffect(()=>{
-    //     console.log("e10 test");
-    //     //socket.on('hamid', response => console.log(response) )
-    //     socket.on('registration_request', data => ( setEventsRequest([ ...eventsRequest, data]) ) )
-    // },[eventsRequest, socket]);
 
     const getOneTypeNews = async(newsType) => {
         try {
             console.log("newsType in getOneType-index", newsType);
-            //console.log("TEST:", id);
             const url = `/getOneTypeNews/${newsType}` ;
             const response = await api.get(url, { headers: { user: user }})
             console.log("RESPONSE(", newsType ,"):", response.data.news);

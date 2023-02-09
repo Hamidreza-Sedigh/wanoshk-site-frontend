@@ -1,12 +1,13 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
+// import React, { useState, useContext, useEffect } from 'react';
 import api from '../../services/api';
-import { Button, Form, FormGroup, Input, Label, FormText, Alert } from 'reactstrap';
-import {UserContext} from '../../user-context';
+import { Button, Form, FormGroup, Input, Label, Alert } from 'reactstrap';
+// import { FormText } from 'reactstrap';
 import './contactUs.css';
 import '../../App.css';
 
 export default function ContactUs({history}){
-    const { setIsLoggedIn} = useContext(UserContext);
+    // const { setIsLoggedIn} = useContext(UserContext);
     const [email, setEmail] = useState("");
     const [category, setCategory] =  useState("");
     const [passage, setPassage] = useState("");

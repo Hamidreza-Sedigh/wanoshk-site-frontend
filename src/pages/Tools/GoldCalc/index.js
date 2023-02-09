@@ -9,8 +9,8 @@ export default function App() {
   const [profit, setProfit] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  let todayPriceDefault = 0;
-  let weightDefault = 0;
+  // let todayPriceDefault = 0;
+  // let weightDefault = 0;
   let wageDefault = 11;
   let taxDefault = 9;
   let profitDefault = 7;

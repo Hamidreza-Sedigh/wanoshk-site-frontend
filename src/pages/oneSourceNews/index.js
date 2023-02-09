@@ -1,19 +1,15 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
 import './OneSourceNews.css';
 import '../../App.css';
-import { Badge, Button, ButtonGroup, Alert, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import ReactDom from 'react-dom';
-import socketio from 'socket.io-client';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import { Badge } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default function OneSourceNews(props, {history}){
     const [news, setNews] = useState([]);
     const user = localStorage.getItem('user');
-    const user_id = localStorage.getItem('user_id');
+    // const user_id = localStorage.getItem('user_id');
 
     //let { sourceName } = props.location.state;
     //console.log(this.props);
@@ -27,11 +23,6 @@ export default function OneSourceNews(props, {history}){
         //getOneNews(_id)
     },[]);
 
-    // const socket = useMemo( 
-    //     () => 
-    //     socketio('http://194.36.174.135:8000/', { query: { user: user_id } }),
-    //     [user_id]
-    //     );
 
     const getOneSourceNews = async(sourceName) => {
         try {

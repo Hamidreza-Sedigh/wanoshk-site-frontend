@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import DatePicker, { registerLocale } from 'react-datepicker';
-import { DatePickerJal } from 'jalali-react-datepicker';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+// import { DatePickerJal } from 'jalali-react-datepicker';
 //@material-ui/pickers
 import 'react-datepicker/dist/react-datepicker.css';
 import './style.css';
 //import fa from 'date-fns/locale/fa';
 // import { fa } from 'date-fns/locale';
 import { Input } from 'reactstrap';
-import momentJa from 'moment-jalali';
+// import momentJa  from 'moment-jalali';
 import momentJaa from 'moment-jalaali';
 // registerLocale('fa', fa);
 

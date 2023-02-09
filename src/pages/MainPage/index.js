@@ -1,14 +1,11 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
-import moment from 'moment';
 import './mainPage.css';
-import { Button, ButtonGroup, Badge, Alert, Container, Row, Col,Spinner } from 'reactstrap';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import ReactDom from 'react-dom';
-import socketio from 'socket.io-client';
-//import appTest from '../../App';
-//import Badge from 'reactstrap/lib/Badge';
+import { Button, ButtonGroup, Badge, Spinner } from 'reactstrap';
+// import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
+// import ReactDom from 'react-dom';
+// import socketio from 'socket.io-client';
 //import Registration from '../../../../backend/src/models/Registration';
 
 
@@ -23,19 +20,19 @@ export default function MainPage({history}){
     //const [cSelected, setCSelected] = useState([]); // jean deleted
 
     const [rSelected, setRSelected] = useState(null);
-    const [error, setError] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [messageHandler, setMessageHandler] = useState('');
-    const [eventsRequest, setEventsRequest] = useState([]);
+    // const [error, setError] = useState(false);
+    // const [success, setSuccess] = useState(false);
+    // const [messageHandler, setMessageHandler] = useState('');
+    // const [eventsRequest, setEventsRequest] = useState([]);
     const [dropdownOpen, setDropdownOpen ] = useState(false);
-    const [eventRequestMessage, setEventRequestMessage ] = useState('');
-    const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
+    // const [eventRequestMessage, setEventRequestMessage ] = useState('');
+    // const [eventRequestSuccess, setEventRequestSuccess] =  useState(false);
     const [loading1, setLoading1] = useState(true);
     const [loading2, setLoading2] = useState(true);
     const [loading3, setLoading3] = useState(true);
     const [loading4, setLoading4] = useState(true);
-    const [loading5, setLoading5] = useState(true);
-    const [loading6, setLoading6] = useState(true);
+    // const [loading5, setLoading5] = useState(true);
+    // const [loading6, setLoading6] = useState(true);
     
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
@@ -57,17 +54,7 @@ export default function MainPage({history}){
         // getMostCommentedweekly();
     },[]);
 
-    // const socket = useMemo( 
-    //     () => 
-    //     socketio('http://194.36.174.135:8000/', { query: { user: user_id } }),
-    //     [user_id]
-    //     );
 
-    // useEffect(()=>{
-    //     console.log("e10 test");
-    //     //socket.on('hamid', response => console.log(response) )
-    //     socket.on('registration_request', data => ( setEventsRequest([ ...eventsRequest, data]) ) )
-    // },[eventsRequest, socket]);
 
 
 
@@ -187,64 +174,10 @@ export default function MainPage({history}){
             history.push('/');
         }
     };
-
-    // it should work in callback mode : dont know how to do it in express routes.
-    // const getNewsCates = async() => {
-    //     try {
-    //         console.log("TESTgnc. start");
-    //         let type = 'a'
-    //         let categories = ['a', 'b', 'c', 'd'] ;
-    //         categories.map(c=>{
-    //             console.log("TESTgnc. c:", c);
-    //             let response = await api.post('/getNewsType', { c });
-    //             switch(c) {
-    //                 case 'a':
-    //                     setPoliticNews(response.data.news);
-    //                     break;
-    //                 case 'b':
-    //                     setEconomicNews(response.data.news);
-    //                     //
-    //                     break;
-    //                 case 'c':
-    //                     setSportNews(response.data.news);
-    //                     //
-    //                     break;
-    //                 case 'd':
-    //                     setTechNews(response.data.news);
-    //                     //
-    //                     break;
-    //                 case 'd':
-    //                     //
-    //                     break;
-    //                 case 'd':
-    //                     //
-    //                     break;
-    //                 default:
-    //                   // code block
-    //             }
-    //             //setNews(response.data.news);
-    //         });
-
-    //         //const response = await api.post('/getNewsType', { type });
-    //     } catch (error) {
-    //         console.log("error in getNewsCates", error);
-    //     }
-    // }
     
     
-
-
-    // select all categories: (6for example) -> map-> select where category = this
     return(
         <>
-            {/* <div className="navbar">
-                <Nav pills>
-                    <NavLink href="/" active>صفحه اصلی</NavLink> 
-                    <NavLink href="#"> منابع خبری </NavLink> 
-                    <NavLink href="/aboutUs">درباره ما</NavLink> 
-                    <NavLink disabled href="#">تماس با ما</NavLink> 
-                </Nav>
-            </div> */}
             
             <div className="box">
             {/* boxes */}

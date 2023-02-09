@@ -1,13 +1,13 @@
 import React from 'react';
 //import logo from './logo.svg';  // remove by jean
 import {Container as div} from 'reactstrap';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavLink } from 'reactstrap';
 import Routes from './routes';
 import {ContextWrapper} from './user-context'
 import './App.css';
-import moment from 'moment';
+// import moment from 'moment';
 import momentJaa from 'moment-jalaali';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 
 //import { Route } from 'react-router-dom';
@@ -46,15 +46,15 @@ switch(currrentPage) {
 
 
 
-let n =  new Date();
-let y = n.getFullYear();
-let m = n.getMonth() + 1;
-let d = n.getDate();
-//document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-//let today = m + "/" + d + "/" + y ;
-let options = { year: 'numeric',  day: 'numeric', month: 'long' };
+// let n =  new Date();
+// let y = n.getFullYear();
+// let m = n.getMonth() + 1;
+// let d = n.getDate();
+// document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+// let today = m + "/" + d + "/" + y ;
+// let options = { year: 'numeric',  day: 'numeric', month: 'long' };
 // let today = new Date().toLocaleDateString('fa-IR');
-//today = new Date().toLocaleDateString('fa-IR', options);
+// today = new Date().toLocaleDateString('fa-IR', options);
 let today = new Date();
 let momDate = momentJaa(today);
 let todayDisplay =   new Intl.DateTimeFormat('fa-IR', {
@@ -112,7 +112,7 @@ function App() {
         <p>kahroba news</p>
       </footer>
 
-      <Footer/>      
+      {/* <Footer/>       */}
 
     </ContextWrapper>
   );
