@@ -4,6 +4,8 @@ import moment from 'moment';
 import './newsPage.css';
 // import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import ReactHtmlParser from 'react-html-parser';
+import {Helmet} from "react-helmet";
+
 //import Registration from '../../../../backend/src/models/Registration';
 
 //dashboard will show all the events       
@@ -71,6 +73,19 @@ export default function NewsPage(props, {history}){
 
     return(
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{ 'کهربا - ' + news.map(ns => (ns.title))}</title>
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+                <meta property="og:type" content="website"/>
+                <meta property="og:site_name" content="کهربانت"/>
+                <meta property="og:title" content={ 'کهربا - ' + news.map(ns => (ns.title))}/>
+                <meta property="og:description" content={ 'کهربا - ' + news.map(ns => (ns.title))}/>
+                <meta property="og:url" content= {`http://kahrobanet.ir/newsPage/${id}`} />
+                {/* <meta property="og:locale" content="en_US"/> */}
+                {/* <meta property="og:image" content="http://example.com/myImage.jpg"></meta> */}
+
+            </Helmet>
             <div className="main-body">  
                 <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
                 {/* <p> {news.map(ns => (ns.passage))}</p> */}
