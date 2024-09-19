@@ -34,10 +34,15 @@
 //   const [isOpen, setIsOpen] = useState(false);
 //   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+//   const [isOpen2, setIsOpen2] = useState(false);
+//   const [dropdownOpen2, setDropdownOpen2] = useState(false);
+
 //   const toggle = () => setDropdownOpen((prevState) => !prevState);
 //   const toggle1 = () => setDropdownOpen((prevState) => !prevState);
+//   const toggle2 = () => setDropdownOpen2((prevState2) => !prevState2);
 
 //   const toggleColl = () => setIsOpen(!isOpen);
+//   const toggleColl2 = () => setIsOpen2(!isOpen2);
 
 //   const toggleAcco = (id) => {
 //     if (open === id) {
@@ -178,26 +183,6 @@
 //             انتخاب نقش
 //           </DropdownToggle>
 //           <DropdownMenu>
-//             <DropdownItem header>نقشهای مافیا</DropdownItem>
-//             <DropdownItem value={'پدرخوانده'} onClick={addDefiledRole}>
-//               پدرخوانده
-//             </DropdownItem>
-//             <DropdownItem value={'شب خسب'} onClick={addDefiledRole}>
-//               شب خسب
-//             </DropdownItem>
-//             <DropdownItem value={'شاه کش'} onClick={addDefiledRole}>
-//               شاه کش
-//             </DropdownItem>
-//             <DropdownItem value={'آمپول زن'} onClick={addDefiledRole}>
-//               آمپول زن
-//             </DropdownItem>
-//             <DropdownItem value={'بمب ساز'} onClick={addDefiledRole}>
-//               بمب ساز
-//             </DropdownItem>
-//             <DropdownItem value={'دورو'} onClick={addDefiledRole}>
-//               دورو
-//             </DropdownItem>
-//             <DropdownItem divider />
 //             <DropdownItem header> نقشهای شهروند</DropdownItem>
 //             <DropdownItem value={'دکتر'} onClick={addDefiledRole}>
 //               دکتر
@@ -225,6 +210,46 @@
 //             </DropdownItem>
 //             <DropdownItem value={'فدایی'} onClick={addDefiledRole}>
 //               فدایی
+//             </DropdownItem>
+//             <DropdownItem value={'فدایی'} onClick={addDefiledRole}>
+//               وکیل
+//             </DropdownItem>
+//             <DropdownItem divider />
+//             <DropdownItem header>نقشهای مافیا</DropdownItem>
+//             <DropdownItem value={'پدرخوانده'} onClick={addDefiledRole}>
+//               پدرخوانده
+//             </DropdownItem>
+//             <DropdownItem value={'شب خسب'} onClick={addDefiledRole}>
+//               شب خسب
+//             </DropdownItem>
+//             <DropdownItem value={'شاه کش'} onClick={addDefiledRole}>
+//               شاه کش
+//             </DropdownItem>
+//             <DropdownItem value={'آمپول زن'} onClick={addDefiledRole}>
+//               آمپول زن
+//             </DropdownItem>
+//             <DropdownItem value={'بمب ساز'} onClick={addDefiledRole}>
+//               بمب ساز
+//             </DropdownItem>
+//             <DropdownItem value={'دورو'} onClick={addDefiledRole}>
+//               دورو
+//             </DropdownItem>
+//           </DropdownMenu>
+//         </Dropdown>
+
+//         <Dropdown isOpen={dropdownOpen2} toggle={toggle2}>
+//           <DropdownToggle caret color="info">
+//             انتخاب نقش سکرت
+//           </DropdownToggle>
+//           <DropdownMenu>
+//             <DropdownItem value={'لیبرال'} onClick={addDefiledRole}>
+//               لیبرال
+//             </DropdownItem>
+//             <DropdownItem value={'فاشیست'} onClick={addDefiledRole}>
+//               فاشیست
+//             </DropdownItem>
+//             <DropdownItem value={'هیتلر'} onClick={addDefiledRole}>
+//               هیتلر
 //             </DropdownItem>
 //           </DropdownMenu>
 //         </Dropdown>
@@ -283,7 +308,10 @@
 //               <AccordionHeader targetId={r.playerRolesId.toString()}>
 //                 {r.playerRolesId} {r.playerName}
 //               </AccordionHeader>
-//               <AccordionBody accordionId={r.playerRolesId.toString()}>
+//               <AccordionBody
+//                 className="AccBody"
+//                 accordionId={r.playerRolesId.toString()}
+//               >
 //                 {r.playerRole}
 //               </AccordionBody>
 //             </AccordionItem>

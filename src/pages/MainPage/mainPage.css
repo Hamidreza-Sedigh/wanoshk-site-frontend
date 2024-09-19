@@ -82,8 +82,11 @@ span.news-source{
 span.news-title{
     text-align: right;
     color: #000055;
-
 }
+
+span.news-title.a:link {
+    text-decoration: none;
+  }
 
 
 /*

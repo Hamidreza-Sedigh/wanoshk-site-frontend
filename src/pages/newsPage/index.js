@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
 import moment from 'moment';
+import momentJa from 'moment-jalaali';
 import './newsPage.css';
 // import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import ReactHtmlParser from 'react-html-parser';
@@ -90,7 +91,7 @@ export default function NewsPage(props, {history}){
                 <div><h2 className="news-title" >{news.map(ns => (ns.title))}</h2></div>
                 {/* <p> {news.map(ns => (ns.passage))}</p> */}
                 <div className="news-body" dir="rtl" >{ ReactHtmlParser(news.map(ns => (ns.passage))) }</div>;
-                <div className="news-date"> تاریخ انتشار { news.map(ns=>(moment(ns.date).format('l,  h:mm:ss'))) }</div>
+                <div className="news-date"> تاریخ انتشار { news.map(ns=>(momentJa(ns.date).format('jYYYY/jM/jD HH:MM') )) }</div>
                 <div className="news-source"> منبع خبر: { news.map(ns => (ns.sourceName)) } </div>
                 <div className="news-link">
                     <a  href={news.map(ns => (ns.link))} target="_blank">لینک خبر</a>

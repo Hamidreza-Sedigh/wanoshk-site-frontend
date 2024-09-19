@@ -205,7 +205,7 @@ export default function MainPage({history}){
                             <span className="news-title"> {ns.title} </span> </Link>
                             {/* <span className="news-time">  { moment(ns.date).format(' h:mm:ss') } </span> */}
                             <span className="news-source">  {"|" + ns.sourceName} </span>
-                            <Badge color="info"> {ns.views} بازدید </Badge>
+                            <Badge className="text-light" color="info"> {ns.views} بازدید </Badge>
                             {/* <span> {ns.category} </span> */}
                         </li>
                     ))}

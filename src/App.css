@@ -63,7 +63,9 @@ div.box-title{
     color: cornflowerblue; 
 }
 
-
+.news-list li a:link{
+    text-decoration: none;
+}
 
 
 input,
