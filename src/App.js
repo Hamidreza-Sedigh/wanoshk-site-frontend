@@ -21,9 +21,6 @@ let currrentPage = window.location.pathname
 console.log(currrentPage);
 console.log(window.location.href);     //
 
-// /Sources
-//aboutUs
-//contactUs
 
 switch(currrentPage) {
   case '/Sources':
@@ -41,7 +38,6 @@ switch(currrentPage) {
   default:
     activePage = 1;
 }
-
 
 
 
