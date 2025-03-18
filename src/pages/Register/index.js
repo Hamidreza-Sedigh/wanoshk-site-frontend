@@ -52,7 +52,7 @@ export default function Register({history}){
     return(
         <Container>
             <h2>Register</h2>
-            <p>pleae <strong>Register </strong>in to yoyr account</p>
+            <p>pleae <strong>Register </strong>a new account</p>
             <Form onSubmit={handleSubmit} >
                 <div className="input-group">
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
