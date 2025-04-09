@@ -1,6 +1,6 @@
 import React from 'react';
 //import logo from './logo.svg';  // remove by jean
-import {Container as div} from 'reactstrap';
+import {Container, Container as div} from 'reactstrap';
 import { Nav, NavLink } from 'reactstrap';
 import Routes from './routes';
 import {ContextWrapper} from './user-context'
@@ -64,6 +64,15 @@ console.log("app-today:", today);
 function App() {
   return (
     <ContextWrapper>
+
+    <Container className="content" >
+      <h1>SportApp</h1>
+      <div>
+        <Routes/>
+      </div>
+    </Container>
+
+
       <header className="header">
       {/* <div className="today">
             {today}
@@ -90,10 +99,10 @@ function App() {
           {todayDisplay}    
         </div>
       </div>
-
+{/* baad uncomment shavad:
       <div className="content" > 
         <Routes/>
-      </div>
+      </div> */}
       
       {/* <Container className="content" > 
         <Routes/>

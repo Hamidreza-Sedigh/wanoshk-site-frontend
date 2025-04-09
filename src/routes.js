@@ -27,8 +27,12 @@ export default function Routes(){
         <BrowserRouter>
             <TopNav/>
             <Switch>
-                <Route path='/' exact component={MainPage} />
-                <Route path='/dashboard' exact component={Dashboard} />
+                {/* <Route path='/' exact component={MainPage} /> */}
+                {/* <Route path='/dashboard' exact component={Dashboard} /> */}
+                <Route path='/mainpage' exact component={MainPage} />
+                <Route path='/' exact component={Dashboard} />
+
+
                 <Route path='/myregistrations' exact component={MyRegistrations} />
                 <Route path='/login' exact component={Login} />
                 <Route path='/register' exact component={Register} />

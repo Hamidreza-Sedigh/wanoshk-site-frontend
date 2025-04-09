@@ -42,7 +42,6 @@ export default function EventsPage({history}){
         eventData.append("description", description);
         eventData.append("date", date);
         
-        console.log("test1")
         try {
             if(title !== "" && description !== "" && 
                 price !== "" && sport !== "Sport" && date !== "" 
@@ -75,7 +74,6 @@ export default function EventsPage({history}){
             <Form onSubmit={submitHandler}>
                 <div className="input-group">
                     <FormGroup>
-                        
                         <Label id="thumbnail" style={{backgroundImage : `url(${preview})`}} className={thumbnail ? 'has-thumbnail' : ''} >
                             <Input type="file" onChange={(evt) => setThumbnail(evt.target.files[0])} />
                             <img src={CameraIcon} style={{ maxWidth: "50px"  }} alt="upload icon " />
@@ -95,7 +93,7 @@ export default function EventsPage({history}){
                     </FormGroup>
                     <FormGroup>
                         
-                        <Input id="date" type="date" value={date} placeholder={'Event price $0.00'} onChange={(evt) => setDate(evt.target.value)} />
+                        <Input id="date" type="date" value={date} placeholder={'Event date'} onChange={(evt) => setDate(evt.target.value)} />
                     </FormGroup>
                     <FormGroup>
                         <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>

@@ -15,11 +15,19 @@ body,
 
 body {
     /* background: rgba(0, 0, 0, 0.500) url(./assets/background.jpg) ; */
+    /* background-size: cover; */
     /* background-color: aquamarine; */
     background-color: red;
     -webkit-font-smoothing: antialiased !important;
     /* font-family: Tahoma; */
 }
+/* 
+body,
+input,
+button {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+} */
 
 
 /* new added from main: */
@@ -92,6 +100,7 @@ input,
 }
 
 .content {
+    /* width: 80%; jean */
     width: 100%;
     opacity: 1;
     /* background: #ffffff; */

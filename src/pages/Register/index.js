@@ -26,7 +26,8 @@ export default function Register({history}){
                 localStorage.setItem('user', user);
                 localStorage.setItem('user_id', user_id);
                 setIsLoggedIn(true);
-                history.push('/');
+                //history.push('/');        //for website
+                history.push('/dashboard'); // for MERN project
             } else {
                 console.log("in else");
                 const {message} = response.data;

@@ -24,7 +24,7 @@ export default function Login({history}){
                 localStorage.setItem('user', user);
                 localStorage.setItem('user_id', user_id);
                 setIsLoggedIn(true);
-                history.push('/');
+                //history.push('/');        //for website
                 history.push('/dashboard'); // for MERN project
             } else {
                 const {message} = response.data;
@@ -44,7 +44,8 @@ export default function Login({history}){
     return(
         <Container>
             <h2>Login</h2>
-            <p>pleae <strong>login </strong>in to your account</p>
+            <p>pleae <strong>login </strong>in to your account. hhhhhhhh</p>
+            
             <Form onSubmit={handleSubmit} >
                 <div className="input-group">
                     <FormGroup className="form-group-"></FormGroup>
