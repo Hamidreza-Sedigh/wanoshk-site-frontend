@@ -10,7 +10,6 @@ export default function Dashboard({history}){
     const [events, setEvents] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
-    //const [cSelected, setCSelected] = useState([]); // jean deleted
 
     const [rSelected, setRSelected] = useState(null);
     const [error, setError] = useState(false);
@@ -152,7 +151,7 @@ export default function Dashboard({history}){
 
     return(
         <>
-            
+            {console.log("testofDD:",eventsRequest)}
             {eventRequestSuccess ? <Alert color="success"> {eventRequestMessage} </Alert> : ""}
             <div className="filter-panel">
                 <Dropdown isOpen={dropdownOpen} toggle={toggle}>
