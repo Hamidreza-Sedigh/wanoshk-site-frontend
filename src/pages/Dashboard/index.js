@@ -37,6 +37,7 @@ export default function Dashboard({history}){
         console.log("e10 test");
         //socket.on('hamid', response => console.log(response) )
         socket.on('registration_request', data => ( setEventsRequest([ ...eventsRequest, data]) ) )
+        // socket.on('registration_request', data => (  console.log("TEST IN SOCKET:",data)   ) )
     },[eventsRequest, socket]);
 
     const filterHandler = (query) =>{
@@ -152,6 +153,11 @@ export default function Dashboard({history}){
     return(
         <>
             {console.log("testofDD:",eventsRequest)}
+            {/* <ul className='notifications'>
+                {
+
+                }
+            </ul> */}
             {eventRequestSuccess ? <Alert color="success"> {eventRequestMessage} </Alert> : ""}
             <div className="filter-panel">
                 <Dropdown isOpen={dropdownOpen} toggle={toggle}>
