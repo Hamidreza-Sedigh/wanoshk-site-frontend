@@ -24,7 +24,7 @@ export default function MyRegistrations(){
         }
     }
 
-    const isApproved = (approved) => approved === true ? "approved" : "rejected" 
+    const isApproved = (approved) => approved === true ? "Approved" : "Rejected" 
 
     //todo: 1 function for accept and reject ;
     const acceptEventHandler = async (eventId) =>{
